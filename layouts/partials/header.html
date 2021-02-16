@@ -1,0 +1,36 @@
+<header class = "uk-navbar-container" id = "top" uk-navbar = "mode: click">
+  <div class = "uk-navbar-left">
+    {{- partial "nav-btn.html" . -}}
+    {{- if .IsSection -}}
+      {{- .Scratch.Set "navTitle" (humanize .Section) -}}
+      {{- $sectionPaginator := .Paginate (where .Site.RegularPages "Section" .Section) -}}
+      {{- if gt $sectionPaginator.TotalPages 1 -}}
+        {{- .Scratch.Set "navPageNumber" $sectionPaginator.PageNumber -}}
+        {{- .Scratch.Set "navTotalPages" $sectionPaginator.TotalPages -}}
+      {{- end -}}
+    {{- else if eq .Kind "taxonomy" -}}
+      {{- .Scratch.Set "navTitle" (humanize .Section) -}}
+    {{- else if eq .Kind "term" -}}
+      {{- range (index .Site.Taxonomies (lower .Section)) -}}
+        {{- range $.Paginator.Pages -}}
+          {{- $.Scratch.Set "navTitle" (printf "#%s" (lower $.Title)) -}}
+          {{- $.Scratch.Set "navTotalPages" $.Paginator.TotalPages -}}
+          {{- if gt $.Paginator.TotalPages 1 -}}
+            {{- $.Scratch.Set "navPageNumber" $.Paginator.PageNumber -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else if .IsPage -}}
+      {{- .Scratch.Set "navTitle" .Title -}}
+    {{- end -}}
+    <h3 class = "uk-text-truncate page-title">
+      {{- .Scratch.Get "navTitle" -}}
+      {{- if gt (.Scratch.Get "navTotalPages") 1 -}}
+        <span class = "uk-text-small">
+          (Page {{ .Scratch.Get "navPageNumber" }} of {{ .Scratch.Get "navTotalPages" }})
+        </span>
+      {{- end -}}
+    </h3>
+  </div>
+</header>
+{{- partial "navigation.html" . -}}

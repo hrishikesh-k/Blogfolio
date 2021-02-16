@@ -1,0 +1,45 @@
+{{- define "main" -}}
+  {{- partial "nav-btn.html" . -}}
+  {{- partial "navigation.html" . -}}
+  <div class = "uk-card uk-margin-top uk-margin-bottom uk-margin-left uk-margin-right full-page-container">
+    <div class = "uk-overflow-auto uk-grid uk-grid-collapse uk-child-width-1-2@s">
+      <div class = "card-container">
+        <div class = "uk-padding-small uk-text-center ver-cen">
+          <h1>
+            {{ .Title }}: Not Found
+          </h1>
+          <p>
+            We tried looking everywhere for the file you requested, but it was nowhere to be found on our server.
+          </p>
+          <div class = "uk-flex uk-flex-wrap uk-flex-center">
+            <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+              <a href = "/" class = "uk-button uk-button-large uk-width-1-1 uk-text-bold arrow-btn">
+                <span>
+                  Home
+                </span>
+                <svg class = "icon icon-primary uk-margin-small-left">
+                  <use xlink:href = "/images/sprites.svg#mi-east"></use>
+                </svg>
+              </a>
+            </div>
+            <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+              <a href = "/search/" class = "uk-button uk-button-large uk-width-1-1 uk-text-bold arrow-btn">
+                <span>
+                  Search
+                </span>
+                <svg class = "icon icon-primary uk-margin-small-left">
+                  <use xlink:href = "/images/sprites.svg#mi-east"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "card-container">
+        <div class = "uk-padding-small ver-cen">
+          <div id = "animation-div" class = "uk-margin-auto" file = "error404.js"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

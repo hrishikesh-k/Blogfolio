@@ -1,0 +1,30 @@
+<a class = "uk-link-text link"
+  {{ if strings.HasPrefix .Destination `mailto` }}
+    data-turbo = "false"
+    href = "mailto:{{- .Text -}}"
+    onClick = "javascript:window.open('mailto:{{- .Text -}}', 'mail'); event.preventDefault()"
+  {{ else if strings.HasPrefix .Destination `http` }}
+    target = "_blank"
+    data-turbo = "false"
+    rel = "nofollow noopener noreferrer"
+    href = "{{- .Destination | safeURL -}}"
+  {{- else if strings.HasPrefix .Destination `#` -}}
+    uk-scroll
+    data-turbo = "false"
+    href = "{{- .Destination | safeURL -}}"
+  {{ else if strings.HasPrefix .Destination `/` }}
+    href = "{{- .Destination | safeURL -}}"
+  {{ else }}
+    rel = "nofollow"
+    data-turbo = "false"
+    href = "{{- .Destination | safeURL -}}"
+  {{ end }}>
+  <span>
+    {{- .Text | htmlUnescape -}}
+  </span>
+  {{- if or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "mailto") -}}
+    <svg class = "icon icon-small external-link">
+      <use xlink:href = "/images/sprites.svg#mi-launch"></use>
+    </svg>
+  {{- end -}}
+</a>

@@ -1,0 +1,37 @@
+{{- if gt .Paginator.TotalPages 1 -}}
+  <div class = "uk-flex uk-flex-wrap uk-flex-center uk-margin-top">
+    {{- if and (ne .Paginator.PageNumber 1) (ne .Paginator.PageNumber 2) -}}
+      <a href = "{{- .Paginator.First.URL -}}" class = "uk-button square-btn">
+        <svg class = "icon icon-primary">
+          <use xlink:href = "/images/sprites.svg#mi-firstPage"></use>
+        </svg>
+      </a>
+    {{- end -}}
+    {{- if .Paginator.HasPrev -}}
+      <a href = "{{- .Paginator.Prev.URL -}}" class = "uk-button square-btn">
+        <svg class = "icon icon-primary">
+          <use xlink:href = "/images/sprites.svg#mi-chevronLeft"></use>
+        </svg>
+      </a>
+    {{- end -}}
+    <a class = "uk-button uk-position-z-index square-btn current-page">
+      <span class = "uk-text-bold">
+        {{- .Paginator.PageNumber -}}
+      </span>
+    </a>
+    {{- if .Paginator.HasNext -}}
+      <a href = "{{- .Paginator.Next.URL -}}" class = "uk-button square-btn">
+        <svg class = "icon icon-primary">
+          <use xlink:href = "/images/sprites.svg#mi-chevronRight"></use>
+        </svg>
+      </a>
+    {{- end -}}
+    {{- if and (ne .Paginator.PageNumber .Paginator.TotalPages) (ne .Paginator.PageNumber (sub .Paginator.TotalPages 1)) -}}
+      <a href = "{{- .Paginator.Last.URL -}}" class = "uk-button square-btn">
+        <svg class = "icon icon-primary">
+          <use xlink:href = "/images/sprites.svg#mi-lastPage"></use>
+        </svg>
+      </a>
+    {{- end -}}
+  </div>
+{{- end -}}

@@ -1,0 +1,36 @@
+<div class = "glide uk-inline uk-visible-toggle" tabindex = "-1">
+  <div class = "glide__track uk-margin-bottom uk-position-relative" data-glide-el = "track">
+    <ul class = "glide__slides">
+      {{- range .Params -}}
+        {{- $imagePath := (index (split . ":") 0) -}}
+        {{- $image := $.Page.Resources.GetMatch (printf "%s" $imagePath) -}}
+        {{- $lowImage := printf "%s%s-low%s" $.Page.RelPermalink (trim $imagePath (substr $imagePath -4)) (substr $imagePath -4) -}}
+        <li class = "glide__slide">
+          <div class = "uk-inline img">
+            <img style = "background-image: url({{- printf $lowImage -}});" width = "{{- $image.Width -}}" height = "{{- $image.Height -}}" alt = "{{- index (split . `:`) 1 -}}" class = "uk-margin-auto uk-display-block" data-src = "{{- $imagePath -}}" src = "data:image/svg+xml;utf8,<svg></svg>" uk-img>
+            <div class = "uk-inline uk-position-center">
+              <span class = "uk-position-center" uk-spinner = "ratio: 3;"></span>
+            </div>
+          </div>
+        </li>
+      {{- end -}}
+    </ul>
+  </div>
+  <div class = "glide__arrows" data-glide-el = "controls">
+    <a class = "glide__arrow glide__arrow--left uk-position-center-left uk-button uk-invisible-hover square-btn" data-glide-dir = "<">
+      <svg class = "icon icon-primary">
+        <use xlink:href = "/images/sprites.svg#mi-chevronLeft"></use>
+      </svg>
+    </a>
+    <a class = "glide__arrow glide__arrow--right uk-position-center-right uk-button uk-invisible-hover square-btn" data-glide-dir = ">">
+      <svg class = "icon icon-primary">
+        <use xlink:href = "/images/sprites.svg#mi-chevronRight"></use>
+      </svg>
+    </a>
+  </div>
+  <ul class = "glide__bullets uk-dotnav uk-flex uk-flex-center" data-glide-el = "controls[nav]">
+    {{- range seq 0 (sub (len .Params) 1) -}}
+      <li class = "glide__bullet" data-glide-dir = "={{- . -}}"><a></a></li>
+    {{- end -}}
+  </ul>
+</div>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    {{- if .IsHome -}}
+      {{- .Scratch.Set "pageTitle" .Site.Title -}}
+      {{- .Scratch.Set "pageDescription" "Online portfolio and blog of Hrishikesh Kokate, made in Hugo." -}}
+    {{- else if .IsSection -}}
+      {{- $sectionTitlePaginator := .Paginate (where .Site.RegularPages "Section" .Section) -}}
+      {{- if gt $sectionTitlePaginator.TotalPages 1 -}}
+        {{- .Scratch.Set "sectionTitlePageNumber" $sectionTitlePaginator.PageNumber -}}
+        {{- .Scratch.Set "sectionTitleTotalPages" $sectionTitlePaginator.TotalPages -}}
+        {{- .Scratch.Set "pageTitle" (printf "Page %v of %v | %s | %s" (.Scratch.Get "sectionTitlePageNumber") (.Scratch.Get "sectionTitleTotalPages") .Title .Site.Title) -}}
+      {{- else -}}
+        {{- .Scratch.Set "pageTitle" (printf "%s | %s" .Title .Site.Title) -}}
+      {{- end -}}
+      {{- .Scratch.Set "pageDescription" (printf "View all posts by %s in %s." .Site.Params.Author .Title) -}}
+    {{- else if eq .Kind "term" -}}
+      {{- range (index .Site.Taxonomies (lower .Section)) -}}
+        {{- range $.Paginator.Pages -}}
+          {{- if gt $.Paginator.TotalPages 1 -}}
+            {{- $.Scratch.Set "termTitlePageNumber" $.Paginator.PageNumber -}}
+            {{- $.Scratch.Set "termTitleTotalPages" $.Paginator.TotalPages -}}
+            {{- $.Scratch.Set "pageTitle" (printf "Page %v of %v | %s | %s" ($.Scratch.Get "termTitlePageNumber") ($.Scratch.Get "termTitleTotalPages") (printf "#%s" $.Title) $.Site.Title) -}}
+          {{- else -}}
+            {{- $.Scratch.Set "pageTitle" (printf "%s | %s" $.Title $.Site.Title) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- .Scratch.Set "pageDescription" (printf "View all posts by %s tagged %s." .Site.Params.Author .Title) -}}
+    {{- else if eq .Kind "taxonomy" -}}
+      {{- .Scratch.Set "pageTitle" (printf "%s | %s" .Title .Site.Title) -}}
+      {{- .Scratch.Set "pageDescription" (printf "View all tags and their posts on %s." .Site.Title) -}}
+    {{- else if .IsPage -}}
+      {{- .Scratch.Set "pageTitle" (printf "%s | %s" .Title .Site.Title) -}}
+      {{- .Scratch.Set "pageDescription" .Description -}}
+    {{- end -}}
+    {{- if and .IsPage (in .Site.Params.mainSections .Type) -}}
+      {{- .Scratch.Set "ogImage" (.Page.Resources.GetMatch "assets/og*").Permalink -}}
+      {{- .Scratch.Set "twitterImage" (.Page.Resources.GetMatch "assets/twitter*").Permalink -}}
+    {{- else -}}
+      {{- .Scratch.Set "ogImage" (printf "%simages/og.png" .Site.BaseURL) -}}
+      {{- .Scratch.Set "twitterImage" (printf "%simages/twitter.png" .Site.BaseURL) -}}
+    {{- end -}}
+    <meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    {{- if or (eq .Layout "404") (eq .Layout "offline") (eq .Layout "search") -}}
+      <meta name = "robots" content = "noindex">
+    {{- end -}}
+    <meta name = "theme-color" content = "#fafafa">
+    <meta name = "generator" content = "Hugo v{{ hugo.Version }}">
+    <meta name = "author" content = "{{- .Site.Params.Author -}}">
+    <meta name = "application-name" content = "{{- .Site.Title -}}">
+    <meta name = "title" content = "{{- .Scratch.Get `pageTitle` -}}">
+    <meta name = "msapplication-config" content = "/browserconfig.xml">
+    <meta name = "apple-mobile-web-app-title" content = "{{- .Site.Title -}}">
+    <meta name = "description" content = "{{- .Scratch.Get `pageDescription` -}}">
+    <meta name = "viewport" content = "user-scalable=yes,initial-scale=1,width=device-width,height=device-height">
+    <meta name = "keywords" content = "Hrishikesh Kokate, Hrishikesh, Kokate, Portfolio, Blog, Hugo, Artist, Digital, Professional">
+    <meta property = "og:type" content = "website">
+    <meta property = "og:locale" content = "en_IN">
+    <meta property = "og:image:width" content = "1200">
+    <meta property = "og:image:height" content = "638">
+    <meta property = "og:image:type" content = "image/png">
+    <meta property = "og:url" content = "{{- .Permalink -}}">
+    <meta property = "og:image" content = "{{- .Scratch.Get `ogImage` -}}">
+    <meta property = "og:title" content = "{{- .Scratch.Get `pageTitle` -}}">
+    <meta property = "og:description" content = "{{- .Scratch.Get `pageDescription` -}}">
+    <meta property = "twitter:card" content = "summary_large_image">
+    <meta property = "twitter:url" content = "{{- .Site.BaseURL -}}">
+    <meta property = "twitter:title" content = "{{- .Scratch.Get `pageTitle` -}}">
+    <meta property = "twitter:image" content = "{{- .Scratch.Get `twitterImage` -}}">
+    <meta property = "twitter:image:alt" content = "{{- .Scratch.Get `pageTitle` -}}">
+    <meta property = "twitter:description" content = "{{- .Scratch.Get `pageDescription` -}}">
+    <title>{{- .Scratch.Get "pageTitle" -}}</title>
+    <link href = "/manifest.json" rel = "manifest">
+    <link href="/images/safari-pinned.svg" rel="mask-icon" color = "#212121">
+    <link href = "/favicon.ico" rel = "icon" type = "image/x-icon" sizes = "32x32">
+    <link href="/images/safari-home.png" rel = "apple-touch-icon" sizes = "180x180">
+    <link href = "/css/uikit-v3.6.16.css" rel = "stylesheet">
+    <link href = "/css/gitalk-v1.7.0.css" rel = "stylesheet">
+    <link href = "/css/glide-v3.4.1.css" rel = "stylesheet">
+    <link href = "/css/styles.css" rel = "stylesheet">
+    <script src = "/js/glide-v3.4.1.js" defer></script>
+    <script src = "/js/uikit-v3.6.16.js" defer></script>
+    <script src = "/js/gitalk-v1.7.0.js" defer></script>
+    <script src = "/js/dplayer-v1.26.0.js" defer></script>
+    <script src = "/js/wavesurfer-v4.4.0.js" defer></script>
+    <script src = "/js/turbo-v7.0.0-beta.4.js" defer></script>
+    <script src = "/js/saola-animate-v3.0.0.js" defer></script>
+    <script src = "/js/hls-v1.0.0-beta4-light.js" defer></script>
+    <script src = "/js/flexsearch-v0.7.0-light.js" defer></script>
+    <script src = "/js/logic.js" defer></script>
+    {{- if .IsHome -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "{{- .Site.Title -}}",
+          "url": {{- .Site.BaseURL -}},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "name": "Search",
+            "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+            "query-input": "required name=search_term_string"
+          }
+        }
+      </script>
+    {{- else if .IsSection -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@graph":
+          [
+            {
+              "@type": "WebSite",
+              "name": "{{- .Site.Title -}}",
+              "url": {{- .Site.BaseURL -}},
+              "potentialAction": {
+                "@type": "SearchAction",
+                "name": "Search",
+                "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BreadcrumbList", 
+              "name": "Section Breadcrumbs",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1, 
+                "name": "{{- .Site.Title -}}",
+                "item": {{- .Site.BaseURL -}}
+              },
+              {
+                "@type": "ListItem", 
+                "position": 2,
+                "name": "{{- .Title -}}",
+                "item": {{- .Permalink -}}
+              }]
+            }
+          ]
+        }
+      </script>
+    {{- else if eq .Kind "taxonomy" -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@graph":
+          [
+            {
+              "@type": "WebSite",
+              "name": "{{- .Site.Title -}}",
+              "url": {{- .Site.BaseURL -}},
+              "potentialAction": {
+                "@type": "SearchAction",
+                "name": "Search",
+                "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "name": "Taxonomy Breadcrumbs",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "{{- .Site.Title -}}",
+                "item": {{- .Site.BaseURL -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{- .Title -}}",
+                "item": {{- .Permalink -}}
+              }]
+            }
+          ]
+        }
+      </script>
+    {{- else if eq .Kind "term" -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@graph":
+          [
+            {
+              "@type": "WebSite",
+              "name": "{{- .Site.Title -}}",
+              "url": {{- .Site.BaseURL -}},
+              "potentialAction": {
+                "@type": "SearchAction",
+                "name": "Search",
+                "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "name": "Term Breadcrumbs",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "{{- .Site.Title -}}",
+                "item": {{- .Site.BaseURL -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{- humanize .Section -}}",
+                "item": {{- printf "%s%s/" .Site.BaseURL (lower .Section) -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{- .Title -}}",
+                "item": {{- .Permalink -}}
+              }]
+            }
+          ]
+        }
+      </script>
+    {{- else if and .IsPage (not .Params.Static) -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@graph":
+          [
+            {
+              "@type": "WebSite",
+              "name": "{{- .Site.Title -}}",
+              "url": {{- .Site.BaseURL -}},
+              "potentialAction": {
+                "@type": "SearchAction",
+                "name": "Search",
+                "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BlogPosting",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": {{- .Permalink -}}
+              },
+              "headline": "{{- .Title -}}",
+              "description": "{{- .Description -}}",
+              "image": {{- printf "%sassets/cover.png" .Permalink -}},
+              "author": {
+                "@type": "Person",
+                "name": "{{- .Site.Params.Author -}}"
+              },
+              "datePublished": "{{- .Date.Format "2006-01-02" -}}"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "name": "Page Breadcrumbs",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "{{- .Site.Title -}}",
+                "item": {{- .Site.BaseURL -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{- humanize .Section -}}",
+                "item": {{- printf "%s%s/" .Site.BaseURL (lower .Section) -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{- .Title -}}",
+                "item": {{- .Permalink -}}
+              }]
+            }
+          ]
+        }
+      </script>
+    {{- else if .Params.Static -}}
+      <script type = "application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@graph":
+          [
+            {
+              "@type": "WebSite",
+              "name": "{{- .Site.Title -}}",
+              "url": {{- .Site.BaseURL -}},
+              "potentialAction": {
+                "@type": "SearchAction",
+                "name": "Search",
+                "target": {{- printf "%ssearch/?q={search_term_string}" .Site.BaseURL -}},
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "name": "Page Breadcrumbs",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "{{- .Site.Title -}}",
+                "item": {{- .Site.BaseURL -}}
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{- .Title -}}",
+                "item": {{- .Permalink -}}
+              }]
+            }
+          ]
+        }
+      </script>
+    {{- end -}}
+  </head>
+  <body>
+    {{- block "main" . -}}
+    {{- end -}}
+    <a href = "#top" class = "uk-button uk-position-fixed" id = "fab" uk-scroll data-turbo = "false" data-turbo-permanent>
+      <svg class = "icon icon-primary">
+        <use xlink:href = "/images/sprites.svg#mi-expandLess"></use>
+      </svg>
+    </a>
+  </body>
+</html>

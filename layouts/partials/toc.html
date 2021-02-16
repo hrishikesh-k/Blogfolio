@@ -1,0 +1,44 @@
+<div class = "uk-card uk-card-small uk-link-reset">
+  <div class = "uk-card-body">
+    <p class = "uk-text-large">
+      Contents
+    </p>
+    <div>
+      {{- $headers := findRE "<h[2-4].*>(.|\n])+</h[2-4]>" .Content -}}
+      {{- .Scratch.Set "lastLevel" 1 -}}
+      {{- $hasHeaders := ge (len $headers) 1 -}}
+      {{- if $hasHeaders -}}
+        <ul class = "uk-nav"  uk-scrollspy-nav = "cls: uk-active; closest: li; scroll: true">
+          {{- range $headers -}}
+            {{- $lastLevel := $.Scratch.Get "lastLevel" -}}
+            {{- $header := . -}}
+            {{- $base := $.Path -}}
+            {{- $anchorId := ($header | plainify | htmlUnescape | anchorize) -}}
+            {{- $href := delimit (slice $base $anchorId) "#" | string -}}
+            {{- range findRE "[2-4]" . 1 -}}
+              {{- $nextLevel := (int .) -}}
+              {{- if gt $nextLevel $lastLevel -}}
+                {{- range seq (add $lastLevel 1) $nextLevel -}}
+                  <li>
+                    <ul class = "toc-h{{- . -}}">
+                {{- end -}}
+              {{- else if lt $nextLevel $lastLevel -}}
+                {{- range seq (add $nextLevel 1) $lastLevel -}}
+                    </ul>
+                  </li>
+                {{- end -}}
+              {{- end -}}
+              <li>
+                <a href = "{{- replace (relref $.Page $href) ($.RelPermalink) `` -}}" class = "uk-text-truncate" uk-scroll data-turbo = "false">
+                  {{- $header | plainify | htmlUnescape -}}
+                </a>
+              </li>
+              {{- $.Scratch.Set "lastLevel" $nextLevel -}}
+            {{- end -}}
+          {{- end -}}
+          </ul>
+        </ul>
+      {{- end -}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<ul class = "uk-breadcrumb uk-link-reset">
+  <li>
+    <a href = "/">
+      Home
+    </a>
+  </li>
+  {{- if .IsSection -}}
+    {{- $paginator := .Paginate (where .Site.RegularPages "Section" .Section) -}}
+    {{- if eq $paginator.TotalPages 1 -}}
+      <li>
+        <span>
+          {{- humanize .Section -}}
+        </span>
+      </li>
+    {{- else if gt $paginator.TotalPages 1 -}}
+      {{- if eq $paginator.PageNumber 1 -}}
+        <li>
+          <snap>
+            {{- humanize .Section -}}
+          </span>
+        </li>
+        <li>
+          <span>
+            Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}
+          </span>
+        </li>
+      {{- else if gt $paginator.PageNumber 1 -}}
+        <li>
+          <a href = "/{{- .Section -}}/">
+            {{- humanize .Section -}}
+          </a>
+        </li>
+        <li>
+          <span>
+            Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}
+          </span>
+        </li>
+      {{- end -}}
+    {{- end -}}
+  {{- else if eq .Kind "taxonomy" -}}
+    <li>
+      <span>
+        {{- humanize .Section -}}
+      </span>
+    </li>
+  {{- else if eq .Kind "term" -}}
+    {{- range .Paginator.Pages -}}
+      {{- $.Scratch.Set "breadTitle" $.Title -}}
+      {{- $.Scratch.Set "breadTotalPages" $.Paginator.TotalPages -}}
+      {{- if gt $.Paginator.TotalPages 1 -}}
+        {{- $.Scratch.Set "pageNumber" $.Paginator.PageNumber -}}
+      {{- end -}}
+    {{- end -}}
+    <li>
+      <a href = "/{{- .Section -}}/">
+        {{- humanize .Section -}}
+      </a>
+    </li>
+    {{- if eq (.Scratch.Get "breadTotalPages") 1 -}}
+      <li>
+        <span>
+          {{- .Scratch.Get "breadTitle" -}}
+        </span>
+      </li>
+    {{- else if gt (.Scratch.Get "breadTotalPages") 1 -}}
+      {{- if eq (.Scratch.Get "pageNumber") 1 -}} 
+        <li>
+          <snap>
+            {{- .Scratch.Get "breadTitle" -}}
+          </span>
+        </li>
+        <li>
+          <span>
+            Page {{ .Scratch.Get "pageNumber" }} of {{ .Scratch.Get "breadTotalPages" }}
+          </span>
+        </li>
+      {{- else if gt (.Scratch.Get "pageNumber") 1 -}}
+        <li>
+          <a href = "/{{- .Section -}}/{{- lower .Title -}}">
+            {{- .Scratch.Get "breadTitle" -}}
+          </a>
+        </li>
+        <li>
+          <span>
+            Page {{ .Scratch.Get "pageNumber" }} of {{ .Scratch.Get "breadTotalPages" }}
+          </span>
+        </li>
+      {{- end -}}
+    {{- end -}}
+  {{- else if .IsPage -}}
+    {{- with .Section -}}
+      <li>
+        <a href = "/{{- . -}}/">
+          {{- humanize . -}}
+        </a>
+      </li>
+    {{- end -}}
+    <li>
+      <span>
+        {{- .Title -}}
+      </span>
+    </li>
+  {{- end -}}
+</ul>

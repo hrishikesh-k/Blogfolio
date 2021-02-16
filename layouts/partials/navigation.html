@@ -1,0 +1,85 @@
+<nav id = "navigation" uk-offcanvas = "mode: none">
+  <div class = "uk-offcanvas-bar">
+    <a href = "#" class = "uk-offcanvas-close">
+      <svg class = "icon uk-margin-small-right">
+        <use xlink:href = "/images/sprites.svg#mi-close"></use>
+      </svg>
+    </a>
+    <ul class = "uk-nav-default uk-nav-parent-icon" uk-nav>
+      {{- $currentPage := . -}}
+      {{- range .Site.Menus.main -}}
+        {{- if .HasChildren -}}
+          <li class = "uk-parent uk-margin-small-top {{ if or ($currentPage.HasMenuCurrent `main` .) ($currentPage.IsMenuCurrent `main` .) }}uk-active{{ end }}">
+            <a href = "#" data-turbo = "false">
+              <svg class = "icon uk-margin-small-right">
+                <use xlink:href = "/images/sprites.svg#mi-{{- .Pre -}}"></use>
+              </svg>
+              <span>
+                {{- .Name -}}
+              </span>
+            </a>
+            <ul class = "uk-nav-sub">
+              <li class = "uk-margin-small-top {{ if $currentPage.IsMenuCurrent `main` . }}uk-active{{ end }}">
+                <a href = "/{{- lower .Title -}}/">
+                  <svg class = "icon uk-margin-small-right">
+                    <use xlink:href = "/images/sprites.svg#mi-link"></use>
+                  </svg>
+                  <span>
+                    See all
+                  </span>
+                </a>
+              </li>
+              {{- range .Children -}}
+                <li class = "uk-margin-small-top {{ if $currentPage.IsMenuCurrent `main` . }}uk-active{{ end }}">
+                  <a href = "{{- .URL -}}">
+                    <svg class = "icon icon-small uk-margin-small-right">
+                      <use xlink:href = "/images/sprites.svg#mi-tripOrigin"></use>
+                    </svg>
+                    <span>
+                      {{- .Name -}}
+                    </span>
+                  </a>
+                </li>
+              {{- end -}}
+            </ul>
+          </li>
+        {{- else -}}
+          <li class = "uk-margin-small-top {{ if $currentPage.IsMenuCurrent `main` . }}uk-active{{ end }}">
+            <a href = "{{- .URL -}}">
+              <svg class = "icon uk-margin-small-right">
+                <use xlink:href = "/images/sprites.svg#mi-{{- .Pre -}}"></use>
+              </svg>
+              <span>
+                {{- .Name -}}
+              </span>
+            </a>
+          </li>
+        {{- end -}}
+      {{- end -}}
+    </ul>
+    <form id = "search-form-min" class = "uk-margin-top" autocomplete = "off" data-turbo = "false" data-turbo-permanent>
+      <div class = "uk-inline">
+        <a class = "uk-form-icon uk-form-icon-flip search-button-min">
+          <svg class = "icon">
+            <use xlink:href = "/images/sprites.svg#mi-search"></use>
+          </svg>
+        </a>
+        <input class = "uk-input uk-form-width-large search-input-min" type = "search" placeholder = "Search">
+      </div>
+    </form>
+    <div class = "search-results-min uk-margin"></div>
+    <footer>
+      <a class = "uk-button uk-margin-auto uk-margin-small-bottom uk-display-block" id = "theme-btn" data-turbo-permanent>
+        <svg class = "icon icon-primary uk-margin-small-right">
+          <use xlink:href = "/images/sprites.svg#mi-brightnessMedium"></use>
+        </svg>
+        <span>
+          Toggle theme
+        </span>
+      </a>
+      <p class = "uk-text-center uk-margin-remove uk-margin-top">
+        &copy; {{ now.Year }} {{ .Site.Params.Author }}
+      </p>
+    </footer>
+  </div>
+</nav>

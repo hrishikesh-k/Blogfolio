@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /404/
+Disallow: /offline/
+Disallow: /projects/itx/assets/website1/
+Disallow: /projects/dropbox/assets/website1/
+Disallow: /projects/dropbox/assets/website2/

@@ -1,0 +1,21 @@
+{{- define "main" -}}
+  {{- partial "header" . -}}
+  <div class = "uk-padding-small">
+    {{- partial "breadcrumbs.html" . -}}
+    <div class = "uk-card">
+      <div class = "uk-card-body uk-padding-small uk-margin-auto uk-display-block">
+        <form class = "search-form" autocomplete = "off" data-turbo = "false">
+          <div class = "uk-inline">
+            <a class = "uk-form-icon uk-form-icon-flip search-button">
+              <svg class = "icon">
+                <use xlink:href = "/images/sprites.svg#mi-search"></use>
+              </svg>
+            </a>
+            <input class = "uk-input uk-form-width-large search-input" type = "search" placeholder = "Search">
+          </div>
+        </form>
+        <div class = "search-results"></div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

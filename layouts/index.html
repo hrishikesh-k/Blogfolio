@@ -1,0 +1,58 @@
+{{- define "main" -}}
+  {{- partial "nav-btn.html" . -}}
+  {{- partial "navigation.html" . -}}
+  <div class = "uk-card uk-margin-top uk-margin-bottom uk-margin-left uk-margin-right full-page-container">
+    <div class = "uk-overflow-auto uk-grid uk-grid-collapse uk-child-width-1-2@s">
+      <div class = "card-container">
+        <div class = "uk-padding-small uk-text-center ver-cen">
+          <img data-src = "/images/logo.png" class = "uk-margin-auto uk-display-block" alt = "logo" width = "125" height = "125" uk-img>
+          <h1>
+            Hi, I'm {{ .Site.Params.Author }}
+          </h1>
+          <div class = "uk-flex uk-flex-wrap uk-flex-center">
+            {{- range .Site.Params.mainSections -}}
+              <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                <a href = "/{{- . -}}/" class = "uk-button uk-button-large uk-text-bold arrow-btn">
+                  <span>
+                    {{- humanize . -}}
+                  </span>
+                  <svg class = "icon icon-primary uk-margin-small-left">
+                    <use xlink:href = "/images/sprites.svg#mi-east"></use>
+                  </svg>
+                </a>
+              </div>
+            {{- end -}}
+          </div>
+          <div class = "uk-flex uk-flex-wrap uk-flex-center">
+            <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+              <a href = "/about/" class = "uk-button square-btn">
+                <svg class = "icon icon-primary">
+                  <use xlink:href = "/images/sprites.svg#mi-info"></use>
+                </svg>
+              </a>
+            </div>
+            <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+              <a href = "/search/" class = "uk-button square-btn">
+                <svg class = "icon icon-primary">
+                  <use xlink:href = "/images/sprites.svg#mi-search"></use>
+                </svg>
+              </a>
+            </div>
+            <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+              <a href = "/contact/" class = "uk-button square-btn">
+                <svg class = "icon icon-primary">
+                  <use xlink:href = "/images/sprites.svg#mi-email"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "card-container">
+        <div class = "uk-padding-small ver-cen">
+          <div id = "animation-div" class = "uk-margin-auto" file = "home.js"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

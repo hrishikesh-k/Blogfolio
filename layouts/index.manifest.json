@@ -1,0 +1,45 @@
+{
+  "start_url": "/?s=pwa",
+  "display": "standalone",
+  "theme_color": "#fafafa",
+  "name": "{{- .Site.Title -}}",
+  "background_color": "#fafafa",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable",
+      "src": "/images/chrome-icon-192.png"
+    },
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable",
+      "src": "/images/chrome-icon-512.png"
+    }
+  ],
+  "shortcuts": [
+    {{- range .Site.Params.mainSections -}}
+      {
+        "name": "{{- humanize . -}}",
+        "url": "/{{- . -}}/?s=pwa",
+        "icons": [
+          {
+            "sizes": "192x192",
+            "src": "/images/chrome-{{- . -}}-192.png"
+          }
+        ]
+      },
+    {{- end -}}
+    {
+      "name": "Contact",
+      "url": "/contact/?s=pwa",
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "/images/chrome-contact-192.png"
+        }
+      ]
+    }
+  ]
+}

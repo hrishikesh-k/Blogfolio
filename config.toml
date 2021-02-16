@@ -1,0 +1,65 @@
+baseURL = "https://www.hrishikeshk.ml/"
+disableHugoGeneratorInject = true
+#disableLiveReload = true
+disableKinds = ["RSS"]
+enableEmoji = true
+enableRobotsTXT = true
+#paginate = 1
+title = "Hrishikesh Kokate"
+verbose = true
+verboseLog = true
+
+[markup]
+  [markup.highlight]
+    lineNos = true
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[menu]
+  [[menu.main]]
+    identifier = "Home"
+    name = "Home"
+    pre = "house"
+    url = "/"
+    weight = 1
+
+[outputFormats]
+  [outputFormats.Logic]
+      baseName = "logic"
+      isPlainText = true
+      mediaType = "application/javascript"
+      path = "js"
+  [outputFormats.Manifest]
+      baseName = "manifest"
+      isPlainText = true
+      mediaType = "application/json"
+  [outputFormats.Sprites]
+      baseName = "sprites"
+      isPlainText = true
+      mediaType = "image/svg+xml"
+      path = "images"
+  [outputFormats.Styles]
+      baseName = "styles"
+      isPlainText = true
+      mediaType = "text/css"
+      path = "css"
+  [outputFormats.SW]
+    baseName = "sw"
+    isPlainText = true
+    mediaType = "application/javascript"
+
+[outputs]
+  home = ["HTML", "JSON", "Logic", "Manifest", "Sprites", "Styles", "SW"]
+
+[params]
+  author = "Hrishikesh Kokate"
+  mainSections = ["blog", "projects"]
+
+[server]
+  [[server.headers]]
+    for = "/*.vtt"
+    [server.headers.values]
+      Content-Type = "text/vtt"
+
+[taxonomies]
+  tag = "tags"

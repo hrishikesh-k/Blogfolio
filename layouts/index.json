@@ -1,0 +1,6 @@
+{{- .Scratch.Set "pagesIndex" slice -}}
+{{- range where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+  {{- $pageData := (dict "title" .Title "description" .Description "href" .RelPermalink "content" ((replaceRE "(<pre.*>(.|\n)*?</pre>)|(<code.*>(.|\n)*?</code>)|(<img.*>)|(<canvas.*></canvas>)|(<h[2-4].*>(.|\n)*?</h[2-4]>)|(<[^>]*>)|(  )|(\\n)|(\\t)" "" (replaceRE "(</li>)|(</p>)" " " .Content)) | htmlUnescape)) -}}
+  {{- $.Scratch.Add "pagesIndex" $pageData -}}
+{{- end -}}
+{{- .Scratch.Get "pagesIndex" | jsonify -}}

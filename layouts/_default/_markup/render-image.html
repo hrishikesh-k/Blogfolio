@@ -1,0 +1,8 @@
+{{- $image := .Page.Resources.GetMatch (printf "%s" .Destination) -}}
+{{- $lowImage := printf "%s%s-low%s" .Page.RelPermalink (trim .Destination (substr .Destination -4)) (substr .Destination -4) -}}
+<div class = "uk-inline img">
+  <img style = "background-image: url({{- printf $lowImage -}});" width = "{{- $image.Width -}}" height = "{{- $image.Height -}}" alt = "{{- .PlainText | htmlUnescape -}}" class = "uk-margin-auto uk-display-block" data-src = "{{- $image.RelPermalink -}}" src = "data:image/svg+xml;utf8,<svg></svg>" uk-img>
+  <div class = "uk-inline uk-position-center">
+    <span class = "uk-position-center" uk-spinner = "ratio: 3;"></span>
+  </div>
+</div>

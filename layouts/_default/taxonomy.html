@@ -1,0 +1,24 @@
+{{- define "main" -}}
+{{- partial "header.html" . -}}
+  <div class = "uk-padding-small">
+    {{- partial "breadcrumbs.html" . -}}
+    <div class = "uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@l uk-child-width-1-4@xl uk-text-center" data-uk-grid = "masonry: true">
+      {{- range $name, $taxonomy := index .Site.Taxonomies (lower .Section) -}}
+        <div>
+          <a href = "{{- printf `%s%s/` $.RelPermalink (lower $name) -}}" class = "uk-link-reset uk-tile tag tag-{{- lower $name -}}">
+              <h3 class = "uk-margin-remove">
+                #{{- $name -}}
+              </h3>
+              <p class = "uk-margin-remove">
+                {{- if eq $taxonomy.Count 1 -}}
+                  {{ $taxonomy.Count }} post
+                {{- else -}}
+                  {{ $taxonomy.Count }} posts
+                {{- end -}}
+              </p>
+          </a>
+        </div>
+      {{- end -}}
+    </div>
+  </div>
+{{- end -}}

@@ -1,0 +1,124 @@
+{{- (printf "<?xml version = \"1.0\" encoding=\"UTF-8\"?>") | safeHTML -}}
+<urlset xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>
+      {{- .Site.BaseURL -}}
+    </loc>
+    <changefreq>
+      {{- printf "monthly" -}}
+    </changefreq>
+    <priority>
+      {{- printf "1" -}}
+    </priority>
+  </url>
+  {{- range .Site.Params.mainSections -}}
+    <url>
+      <loc>
+        {{- printf "%s%s/" $.Site.BaseURL . -}}
+      </loc>
+      <changefreq>
+        {{- printf "weekly" -}}
+      </changefreq>
+      <priority>
+        {{- printf "0.8" -}}
+      </priority>
+    </url>
+    {{- $sectionName := . -}}
+    {{- $sectionPosts := len (where $.Site.RegularPages "Section" .) -}}
+    {{- $sectionPages:= math.Ceil (div $sectionPosts $.Paginator.PageSize) -}}
+    {{- if gt $sectionPages 1 -}}
+      {{- range seq 2 $sectionPages -}}
+        <url>
+          <loc>
+            {{- printf "%s%s/page/%v/" $.Site.BaseURL $sectionName . -}}
+          </loc>
+          <changefreq>
+            {{- printf "weekly" -}}
+          </changefreq>
+          <priority>
+            {{- printf "0.8" -}}
+          </priority>
+        </url>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range $taxonomyTerm, $taxonomy := .Site.Taxonomies -}}
+    <url>
+      <loc>
+        {{- printf "%s%s/" $.Site.BaseURL $taxonomyTerm -}}
+      </loc>
+      <changefreq>
+        {{- printf "weekly" -}}
+      </changefreq>
+      <priority>
+        {{- printf "0.8" -}}
+      </priority>
+    </url>
+    {{- range $taxonomyName, $taxonomy := index $.Site.Taxonomies $taxonomyTerm -}}
+      {{- $taxonomyPosts := $taxonomy.Count -}}
+      {{- $taxonomyPages:= math.Ceil (div $taxonomyPosts $.Paginator.PageSize) -}}
+      {{- if gt $taxonomyPages 1 -}}
+        {{- range seq 2 $taxonomyPages -}}
+          <url>
+            <loc>
+              {{- printf "%s%s/%s/page/%v/" $.Site.BaseURL $taxonomyTerm $taxonomyName . -}}
+            </loc>
+            <changefreq>
+              {{- printf "weekly" -}}
+            </changefreq>
+            <priority>
+              {{- printf "0.8" -}}
+            </priority>
+          </url>
+        {{- end -}}
+      {{- else -}}
+        <url>
+          <loc>
+            {{- printf "%s%s/%s/" $.Site.BaseURL $taxonomyTerm $taxonomyName -}}
+          </loc>
+          <changefreq>
+            {{- printf "weekly" -}}
+          </changefreq>
+          <priority>
+            {{- printf "0.8" -}}
+          </priority>
+        </url>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+    <url>
+      <loc>
+        {{- .Permalink -}}
+      </loc>
+      <changefreq>
+        {{- printf "monthly" -}}
+      </changefreq>
+      <priority>
+        {{- printf "0.5" -}}
+      </priority>
+    </url>
+  {{- end -}}
+  <url>
+    <loc>
+      {{- printf "%sabout/" .Site.BaseURL -}}
+    </loc>
+    <changefreq>
+      {{- printf "monthly" -}}
+    </changefreq>
+    <priority>
+      {{- printf "0.3" -}}
+    </priority>
+  </url>
+  <url>
+    <loc>
+      {{- printf "%scontact/" .Site.BaseURL -}}
+    </loc>
+    <changefreq>
+      {{- printf "monthly" -}}
+    </changefreq>
+    <priority>
+      {{- printf "0.3" -}}
+    </priority>
+  </url>
+</urlset>

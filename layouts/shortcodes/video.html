@@ -1,0 +1,1 @@
+<div class = "video-player" src = "{{- .Get `src` -}}" poster = "{{- .Get `poster` -}}" thumbnails = "{{- .Get `thumbnails` -}}" {{- if (isset .Params `subtitles`) -}}subtitles = "{{- .Get `subtitles` -}}"{{- end -}}></div>

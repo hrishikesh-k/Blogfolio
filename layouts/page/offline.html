@@ -1,0 +1,23 @@
+{{- define "main" -}}
+  {{- partial "nav-btn.html" . -}}
+  {{- partial "navigation.html" . -}}
+  <div class = "uk-card uk-margin-top uk-margin-bottom uk-margin-left uk-margin-right full-page-container offline">
+    <div class = "uk-overflow-auto uk-grid uk-grid-collapse uk-child-width-1-2@s">
+      <div class = "card-container">
+        <div class = "uk-padding-small uk-text-center ver-cen">
+          <h1>
+            You're offline.
+          </h1>
+          <p>
+            Sadly, this website needs a good internet connection to work normally.
+          </p>
+        </div>
+      </div>
+      <div class = "card-container">
+        <div class = "uk-padding-small ver-cen">
+          <div id = "animation-div" class = "uk-margin-auto" file = "offline.js"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

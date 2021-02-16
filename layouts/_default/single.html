@@ -1,0 +1,28 @@
+{{- define "main" -}}
+  {{- partial "header" . -}}
+  <div class = "uk-padding-small post">
+    {{- partial "breadcrumbs.html" . -}}
+    <div class = "uk-grid uk-grid-small">
+      <aside class = "uk-width-1-3@s uk-width-1-4@l uk-overflow-auto toc">
+        {{- partial "toc.html" . -}}
+      </aside>
+      <div class = "uk-width-2-3@s uk-width-3-4@l">
+        <article class = "uk-card uk-card-small post-content">
+          <div class = "uk-card-body">
+            {{- .Content -}}
+          </div>
+        </article>
+        {{- if not .Params.Static -}}
+          <div class = "uk-card uk-card-small uk-margin-top">
+            <div class = "uk-card-body">
+              <p class = "uk-text-large">
+                Comments
+              </p>
+              <div class = "uk-margin-auto" id = "comments-container"></div>
+            </div>
+          </div>
+        {{- end -}}
+      </div>
+    </div>
+  </div>
+{{- end -}}

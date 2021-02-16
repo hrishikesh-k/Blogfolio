@@ -1,0 +1,19 @@
+<div class = "audio-container">
+  <div class = "audio-player" src = "{{- .Get `src` -}}"></div>
+  <hr class = "uk-margin-remove">
+  <div class = "uk-flex uk-flex-between">
+    <div>
+      <svg class = "icon icon-playback paused">
+        <use xlink:href = "/images/sprites.svg#mi-playArrow"></use>
+      </svg>
+      <span class = "time-display uk-margin-small-left uk-text-bold">
+        Loading...
+      </span>
+    </div>
+    <div>
+      <svg class = "icon icon-volume volUp">
+        <use xlink:href = "/images/sprites.svg#mi-volumeUp"></use>
+      </svg>
+    </div>
+  </div>
+</div>

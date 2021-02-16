@@ -1,0 +1,90 @@
+{{- define "main" -}}
+  {{- partial "header" . -}}
+  <div class = "uk-padding-small">
+    {{- partial "breadcrumbs.html" . -}}
+    <div class = "uk-card">
+      <div class = "uk-overflow-auto uk-grid uk-grid-collapse uk-child-width-1-2@s">
+        <div>
+          <div class = "uk-card-body uk-padding-small uk-text-center ver-cen">
+            <p class = "uk-text-large">
+              Want to get in touch? That's great!
+            </p>
+            <p>
+              If you don't want to e-mail, here are my social links:
+            </p>
+            <div class = "uk-flex uk-flex-wrap uk-flex-center">
+              <a href = "https://www.facebook.com/kokate.hrishikesh/" target = "_blank" rel = "nofollow noopener noreferrer" class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                <svg xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 512 512" width = "72" height = "72">
+                  <path d = "m0 0v512h512v-512zm21.33 21.33h469.34v469.34h-469.34z" style = "fill:#1877f2;"/>
+                  <path d = "m21.33 21.33h469.34v469.34h-469.34z" style = "fill: #fff;"/>
+                  <path d = "m373.76 256c0-65.04-52.72-117.76-117.76-117.76s-117.76 52.72-117.76 117.76c0 58.78 43.06 107.5 99.36 116.33v-82.29h-29.9v-34.04h29.9v-25.94c0-29.52 17.58-45.82 44.48-45.82 12.88 0 26.36 2.3 26.36 2.3v28.98h-14.85c-14.63 0-19.19 9.08-19.19 18.39v22.09h32.66l-5.22 34.04h-27.44v82.29c56.3-8.83 99.36-57.55 99.36-116.33z" style = "fill:#1877f2; fill-rule: nonzero;"/>
+                </svg>
+              </a>
+              <a href = "https://www.instagram.com/_hrishikeshkokate_/" target = "_blank" rel = "nofollow noopener noreferrer" class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                <svg xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 512 512" width = "72" height = "72">
+                  <path d = "m0 0v512h512v-512zm21.33 21.33h469.34v469.34h-469.34z" style = "fill:#da004f;"/>
+                  <path d = "m21.33 21.33h469.34v469.34h-469.34z" style = "fill: #fff;"/>
+                  <path d = "m332.99 193.14c0 7.8-6.33 14.13-14.13 14.13s-14.13-6.33-14.13-14.13 6.33-14.13 14.13-14.13 14.13 6.33 14.13 14.13zm-76.99-54.9c-31.98 0-35.99.14-48.55.71-12.54.57-21.1 2.56-28.59 5.47-7.74 3.01-14.31 7.04-20.86 13.58-6.54 6.55-10.57 13.12-13.58 20.86-2.91 7.49-4.9 16.05-5.47 28.59-.57 12.56-.71 16.57-.71 48.55s.14 35.99.71 48.55c.57 12.54 2.56 21.1 5.47 28.59 3.01 7.74 7.04 14.31 13.58 20.86 6.55 6.54 13.12 10.57 20.86 13.58 7.49 2.91 16.05 4.9 28.59 5.47 12.56.57 16.57.71 48.55.71s35.99-.14 48.55-.71c12.54-.57 21.1-2.56 28.59-5.47 7.74-3.01 14.31-7.04 20.86-13.58 6.54-6.55 10.57-13.12 13.58-20.86 2.91-7.49 4.9-16.05 5.47-28.59.57-12.56.71-16.57.71-48.55s-.14-35.99-.71-48.55c-.57-12.54-2.56-21.1-5.47-28.59-3.01-7.74-7.04-14.31-13.58-20.86-6.55-6.54-13.12-10.57-20.86-13.58-7.49-2.91-16.05-4.9-28.59-5.47-12.56-.57-16.57-.71-48.55-.71zm0 21.22c31.44 0 35.17.12 47.59.68 11.48.53 17.71 2.45 21.86 4.06 5.5 2.14 9.42 4.69 13.54 8.81s6.67 8.04 8.81 13.54c1.61 4.15 3.53 10.38 4.06 21.86.56 12.42.68 16.15.68 47.59s-.12 35.17-.68 47.58c-.53 11.49-2.45 17.72-4.06 21.87-2.14 5.5-4.69 9.42-8.81 13.54s-8.04 6.67-13.54 8.81c-4.15 1.61-10.38 3.53-21.86 4.06-12.42.56-16.14.68-47.59.68s-35.17-.12-47.58-.68c-11.49-.53-17.72-2.45-21.87-4.06-5.5-2.14-9.42-4.69-13.54-8.81s-6.67-8.04-8.81-13.54c-1.61-4.15-3.53-10.38-4.06-21.87-.56-12.41-.68-16.14-.68-47.58s.12-35.17.68-47.59c.53-11.48 2.45-17.71 4.06-21.86 2.14-5.5 4.69-9.42 8.81-13.54s8.04-6.67 13.54-8.81c4.15-1.61 10.38-3.53 21.87-4.06 12.41-.56 16.14-.68 47.58-.68zm0 135.79c-21.68 0-39.25-17.57-39.25-39.25s17.57-39.25 39.25-39.25 39.25 17.57 39.25 39.25-17.57 39.25-39.25 39.25zm0-99.72c-33.4 0-60.47 27.07-60.47 60.47s27.07 60.47 60.47 60.47 60.47-27.07 60.47-60.47-27.07-60.47-60.47-60.47z" style = "fill:#da004f; fill-rule: nonzero;"/>
+                </svg>
+              </a>
+              <a href = "https://twitter.com/khrishikesh7/" target = "_blank" rel = "nofollow noopener noreferrer" class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                <svg xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 512 512" width = "72" height = "72">
+                  <path d = "m0 0v512h512v-512zm21.33 21.33h469.34v469.34h-469.34z" style = "fill:#4fbdff;"/>
+                  <path d = "m21.33 21.33h469.34v469.34h-469.34z" style = "fill: #fff;"/>
+                  <path d = "m202.24 373.76c109.36 0 169.17-90.6 169.17-169.17 0-2.57-.05-5.13-.17-7.68 11.6-8.39 21.7-18.87 29.66-30.79-10.66 4.73-22.12 7.92-34.15 9.36 12.28-7.36 21.7-19 26.15-32.89-11.49 6.81-24.21 11.77-37.76 14.43-10.84-11.55-26.3-18.78-43.39-18.78-32.84 0-59.47 26.63-59.47 59.45 0 4.67.52 9.2 1.54 13.56-49.41-2.49-93.23-26.15-122.55-62.12-5.11 8.78-8.05 18.99-8.05 29.88 0 20.63 10.5 38.84 26.46 49.49-9.75-.3-18.92-2.98-26.93-7.44-.01.25-.01.5-.01.76 0 28.8 20.49 52.84 47.7 58.29-5 1.36-10.25 2.09-15.68 2.09-3.83 0-7.55-.38-11.17-1.07 7.57 23.62 29.51 40.81 55.54 41.3-20.35 15.94-45.99 25.45-73.85 25.45-4.79 0-9.52-.28-14.18-.83 26.32 16.87 57.56 26.71 91.14 26.71z" style = "fill:#4fbdff; fill-rule: nonzero;"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class = "uk-card-body uk-padding-small">
+            <form class = "uk-form-stacked uk-margin-auto contact-form" name = "Contact form" method = "POST" data-netlify = "true" netlify-honeypot = "bot-field" autocomplete = "off" data-turbo = "false">
+              <input name = "bot-field"/>
+              <div class = "uk-margin">
+                <label class = "uk-form-label" for = "name-input">Name</label>
+                <div class = "uk-form-controls">
+                  <input class = "uk-input uk-form-width-large" id = "name-input" type = "text" placeholder = "First & Last name" name = "Name" required>
+                </div>
+              </div>
+              <div class = "uk-margin">
+                <label class = "uk-form-label" for = "e-mail-input">E-mail addres</label>
+                <div class = "uk-form-controls">
+                  <input class = "uk-input uk-form-width-large" id = "e-mail-input" type = "email" placeholder = "someone@example.com" name = "E-mail addres" required>
+                </div>
+              </div>
+              <div class = "uk-margin">
+                <label class = "uk-form-label" for = "message-input">Message</label>
+                <div class = "uk-form-controls">
+                  <textarea class = "uk-textarea uk-form-width-large" id = "message-input" type = "text" placeholder = "Your message" name = "Message" required></textarea>
+                </div>
+              </div>
+              <div class = "uk-flex uk-flex-wrap uk-flex-center">
+                <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                  <button type = "reset" class = "uk-button uk-text-bold">
+                    <span>
+                      Reset
+                    </span>
+                    <svg class = "icon icon-primary uk-margin-small-left">
+                      <use xlink:href = "/images/sprites.svg#mi-history"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                  <button type = "submit" class = "uk-button uk-text-bold">
+                    <span>
+                      Submit
+                    </span>
+                    <svg class = "icon icon-primary uk-margin-small-left">
+                      <use xlink:href = "/images/sprites.svg#mi-done"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{- end -}}

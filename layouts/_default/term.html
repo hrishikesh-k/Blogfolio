@@ -1,0 +1,67 @@
+{{- define "main" -}}
+  {{- partial "header.html" . -}}
+  <div class = "uk-padding-small">
+    {{- partial "breadcrumbs.html" . -}}
+    <div class = "uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid = "masonry: true">
+      {{- range .Paginator.Pages -}}
+        <div>
+          <div class = "uk-card uk-card-small">
+            <div class = "uk-card-media uk-inline img">
+              {{- $cover := index (.Page.Resources.Match `assets/cover*`) 1 -}}
+              <img style = "background-image: url({{- (.Page.Resources.GetMatch `assets/cover-low.png`).RelPermalink -}});" width = "{{- $cover.Width -}}" height = "{{- $cover.Height -}}" alt = "Cover image of {{ .Title }}" data-src = "{{- $cover.RelPermalink -}}" uk-img>
+              <div class = "uk-inline uk-position-center">
+                <span class = "uk-position-center" uk-spinner = "ratio: 3;"></span>
+              </div>
+            </div>
+            <div class = "uk-card-body">
+              <h3 class = "uk-heading-line uk-text-center">
+                <span>
+                  {{- .Title -}}
+                </span>
+              </h3>
+              <p class = "uk-text-normal">
+                {{- .Description -}}
+              </p>
+              <a href = "{{- .RelPermalink -}}" class = "uk-button uk-text-left arrow-btn">
+                <span>
+                  Read more
+                </span>
+                <svg class = "icon icon-primary uk-margin-small-left">
+                  <use xlink:href = "/images/sprites.svg#mi-east"></use>
+                </svg>
+              </a>
+            </div>
+            <div class = "uk-card-footer uk-padding-remove">
+              <div class = "uk-grid-collapse uk-child-width-expand uk-margin-small-bottom" uk-grid>
+                <div class = "uk-flex uk-flex-center">
+                  <svg class = "icon uk-margin-small-right">
+                    <use xlink:href = "/images/sprites.svg#mi-event"></use>
+                  </svg>
+                  <p class = "uk-inline uk-margin-remove">
+                    {{- .Date.Format "Jan 02, 2006" -}}
+                  </p>
+                </div>
+                <div class = "uk-flex uk-flex-center">
+                  <svg class = "icon uk-margin-small-right">
+                    <use xlink:href = "/images/sprites.svg#mi-schedule"></use>
+                  </svg>
+                  <p class = "uk-inline uk-margin-remove">
+                    ~{{ .ReadingTime }} minutes
+                  </p>
+                </div>
+              </div>
+              <div class = "uk-grid-collapse uk-child-width-expand uk-link-reset uk-text-center" uk-grid>
+                {{- range (.GetTerms "tags") -}}
+                  <a href = "{{- .RelPermalink -}}" class = "uk-text-truncate tag tag-{{- lower .Title -}}">
+                    {{- .Title -}}
+                  </a>
+                {{- end -}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{- end -}}
+    </div>
+    {{- partial "pagination.html" . -}}
+  </div>
+{{- end -}}
