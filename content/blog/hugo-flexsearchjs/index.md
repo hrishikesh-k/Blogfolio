@@ -116,113 +116,120 @@ This part is purely optional. The HTML has the required CSS classes, you're free
 Now we finally come to probably the most important part of this feature - the JavaScript code. This is where the magic actually happens. I have tried to keep it as minimal as possible, yet fairly functional. I won't say this is the best way or the most optimal code, as my skills in JavaScript are far from polished, but it gets the work done. Please note, if you've changed the HTML, you'd also have to update the JavaScript to reflect the changes.
 
 ```JS
-window.addEventListener('load', function() {
-  function addClickListener() {
-    document.querySelector('.clear-button').addEventListener('click', function(event) {
-      event.preventDefault()
-      searchInput.value = ''
-      resultsContainer.innerHTML = ''
-      history.replaceState('', '', './')
-      resultsContainer.style.marginTop = 0
-    })
-  }
-  var pagesIndex
-  var searchIndex
-  var resultsArray
-  var params = new URLSearchParams(location.search)
-  var searchInput = document.querySelector('.search-input')
-  var resultsContainer = document.querySelector('.search-results')
-  async function initSearchIndex() {
-    var indexFile = await fetch('/index.json')
-    pagesIndex = await indexFile.json()
-    searchIndex = new FlexSearch()
+window.addEventListener('load', () => {
+  var pagesIndex;
+  var searchIndex;
+  var resultsArray;
+  var params = new URLSearchParams(location.search);
+  var searchInput = document.querySelector('.search-input');
+  var resultsContainer = document.querySelector('.search-results');
+  var clickHandler = (function clickHandler(event) {
+    event.preventDefault();
+    resultsContainer.querySelector('.clear-button').removeEventListener('click', clickHandler);
+    searchInput.value = '';
+    resultsContainer.innerHTML = '';
+    resultsContainer.style.marginTop = 0;
+    history.replaceState('', '', './');
+    return clickHandler;
+  });
+  (async () => {
+    var indexFile = await fetch('/index.json');
+    pagesIndex = await indexFile.json();
+    searchIndex = new FlexSearch();
     pagesIndex.forEach(page => {
-      searchIndex.add(page.href, page.content + page.title)
-    })
-    if (params.has('q')) {
-      searchInput.value = params.get('q')
-      searchSite()
-    }
-  }
-  function searchSite() {
-    resultsArray = []
-    if (searchInput.value.trim().length <= 2) {
-      history.replaceState('', '', './')
-      resultsContainer.style.marginTop = '20px'
-      resultsContainer.innerHTML = '<p>Please enter some text (longer than 3 characters) to search</p><a href=# class="uk-button clear-button"><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>'
-      addClickListener()
-    } else {
-      searchIndex.search(searchInput.value.trim()).map(result => {
-      var resultMatches = pagesIndex.find(resultMatch => result === resultMatch.href)
-      resultMatches.correctedContexts = []
-      var matchedResults = resultMatches.content.match(new RegExp('[^\.]*(' + searchInput.value.trim() + ')[^\.]*', 'gmi'))
-      if (matchedResults != null) {
-        matchedResults.forEach(context => {
-          resultMatches.correctedContexts.push(context.trim().replace(new RegExp(searchInput.value.trim(), 'gi'), '<mark>$&</mark>'))
-        })
-      } else {
-        resultMatches.correctedContexts.push(resultMatches.description)
-      }
-      resultsArray.push(resultMatches)
-    })
-    if (resultsArray.length > 0) {
-      if (resultsArray.length > 1) {
-          var resultCount = resultsArray.length + ' results'
-        } else {
-          var resultCount = resultsArray.length + ' result'
-        }
-      history.replaceState('', '', './?q=' + searchInput.value.trim())
-      resultsContainer.style.marginTop = '20px'
-      resultsContainer.innerHTML = `<p>Found ${resultCount} for <mark>${searchInput.value.trim()}</mark></p>` + resultsArray.map(result => `<div><h3 class=uk-margin-remove>${result.title}</h3><p>` + result.correctedContexts.map(context => `<span>${context}</span>`).join('... ') + `</p><a href=${result.href} class="uk-button uk-text-left arrow-btn"><span>Read more</span><svg class="icon icon-primary uk-margin-small-left"><use xlink:href="/images/sprites.svg#mi-east"></use></svg></a></div>`).join('<hr/>') + `<a href=# class="uk-button clear-button" style="margin-top:20px"><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>`
-      addClickListener()
-    } else {
-      resultsContainer.style.marginTop = '20px'
-      resultsContainer.innerHTML = '<p>No results found for ' + searchInput.value.trim() + '</p><a href=# class="uk-button clear-button"><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>'
-      addClickListener()
-    }}
-  }
-  initSearchIndex()
-  searchInput.addEventListener('input', searchSite)
-  searchInput.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-      event.preventDefault()
-      searchSite()
-    }
-  })
-  document.querySelector('.search-button').addEventListener('click', searchSite)
-  }
-})
+      searchIndex.add(page.href, page.content + page.title);
+    });
+    switch (params.has('q')) {
+      case true:
+        searchInput.value = params.get('q');
+        searchSite();
+        break;
+      default:
+        break;
+    };
+  })();
+  var searchSite = (function searchSite(event) {
+    switch (this == window) {
+      case true:
+        break;
+      default:
+        event.preventDefault();
+    };
+    resultsArray = [];
+    switch (searchInput.value.trim().length <= 2) {
+      case true:
+        history.replaceState('', '', './');
+        resultsContainer.style.marginTop = '20px';
+        resultsContainer.innerHTML = '<p>Please enter some text (longer than 3 characters) to search</p><a href=# class="uk-button clear-button" data-turbo=false><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>';
+        resultsContainer.querySelector('.clear-button').addEventListener('click', clickHandler);
+        break;
+      default:
+        searchIndex.search(searchInput.value.trim()).map(result => {
+          var resultMatches = pagesIndex.find(resultMatch => result === resultMatch.href);
+          resultMatches.correctedContexts = [];
+          var matchedResults = resultMatches.content.match(new RegExp('[^\.]*(' + searchInput.value.trim() + ')[^\.]*', 'gmi'));
+          switch (matchedResults) {
+            case null:
+              resultMatches.correctedContexts.push(resultMatches.description);
+              break;
+            default:
+              matchedResults.forEach(context => {
+                resultMatches.correctedContexts.push(context.trim().replace(new RegExp(searchInput.value.trim(), 'gi'), '<mark>$&</mark>'));
+              });
+          };
+          resultsArray.push(resultMatches);
+        });
+        switch (resultsArray.length > 0) {
+          case true:
+            switch (resultsArray.length > 1) {
+              case true:
+                var resultCount = resultsArray.length + ' results';
+              default:
+                var resultCount = resultsArray.length + ' result';
+            };
+            history.replaceState('', '', './?q=' + searchInput.value.trim());
+            resultsContainer.style.marginTop = '20px';
+            resultsContainer.innerHTML = `<p>Found ${resultCount} for <mark>${searchInput.value.trim()}</mark></p>` + resultsArray.map(result => `<div><h3 class=uk-margin-remove>${result.title}</h3><p>` + result.correctedContexts.map(context => `<span>${context}</span>`).join('<span>... </span>') + `</p><a href=${result.href} class="uk-button uk-text-left arrow-btn"><span>Read more</span><svg class="icon icon-primary uk-margin-small-left"><use xlink:href="/images/sprites.svg#mi-east"></use></svg></a></div>`).join('<hr/>') + `<a href=# class="uk-button uk-margin-small-top clear-button" data-turbo=false><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>`;
+            resultsContainer.querySelector('.clear-button').addEventListener('click', clickHandler);
+            break;
+          default:
+            resultsContainer.style.marginTop = '20px';
+            resultsContainer.innerHTML = '<p>No results found for ' + searchInput.value.trim() + '</p><a href=# class="uk-button clear-button" data-turbo=false><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>';
+            resultsContainer.querySelector('.clear-button').addEventListener('click', clickHandler);
+        };
+    };
+    return searchSite;
+  });
+  searchInput.addEventListener('input', searchSite);
+  searchInput.parentElement.parentElement.addEventListener('submit', searchSite);
+});
 ```
 
-To begin with, I'm running this entire piece of code inside the `window load` event. This is to make sure my DOM is all ready for my JavaScript to manipulate it.
+To begin with, we're running this entire piece of code inside the `window load` event. This is to make sure my DOM is all ready for my JavaScript to manipulate it.
 
-* `Line 2 - 10`: I'm defining a function which we would need later. This function is basically adding a `click event listener` to our button which we would dynamically add in some time.
+* `Line 2 - 16`: We're declaring various variables that we'll need in the rest of the code. Some are just declared, while some are defined. The `line 8 - 16` is defining a function to add a `click event listener` to our clear button which we would dynamically add in some time. Clicking it would clear the results, reset the search input,, reset the URL and even remove the event listener. 
 
-* `Line 11 - 16`: I'm declaring and defining a few variables to use and modify them further. The names of the variables would probably give you an idea of their purpose.
-
-* `Line 17 - 28`: I've declared an `async` function to initialise and build a search index from the JSON file. It's important to make it `async` because we need to use `await` statements. This is because JavaScript is synchronous in nature (by default). So, anything that we start processing would continue to do so until it ends, and thus the main thread would be busy, pausing execution of anything else. We need to keep it `async` because the JSON file could be over a few hundred kibibytes in some cases, and depending on the user's network, it might take time to load. In such cases, if we don't make it `async`, the rest of the JavaScript won't work till the JSON loads.
+* `Line 17 - 32`: We're declaring a self-executing `async` function to initialise and build a search index from the JSON file. It's important to make it `async` because we need to use `await` statements. This is because JavaScript is synchronous in nature (by default). So, anything that we start processing would continue to do so until it ends, and thus the main thread would be busy, pausing execution of anything else. We need to keep it `async` because the JSON file could be over a few hundred kibibytes in some cases, and depending on the user's network, it might take time to load. In such cases, if we don't make it `async`, the rest of the JavaScript won't work till the JSON loads.
 
   * We first let the JSON load and then tell JavaScript to parse it as a JSON and store it in a variable. Once that's done, we initialise FlexSearch.js by calling `new FlexSearch()`. Then, we take each element of the `pagesIndex` and use FlexSearch's `add()` function to let it index the contents. We store 2 items in the index, the first one being `page.href` which is a unique identifier for each page and the `page.content` which is each post's body and `page.title` which is each post's title.
 
   * After the index is ready, we check if the URL that led to the search page had a query string parameter, that is `?q=`. If it has, we set that as the value of the `searchInput` and call our `searchSite()` function which takes care of the rest. Due to this feature, we can link to search queries. For example, a URL like `/search/?q=Apple` would automatically search for 'Apple' on the website.
 
-* `Line 29 - 65`: This is the real function that's doing most of the work.
+* `Line 33 - 84`: This is the real function that's doing most of the work.
 
-  * `Line 30`: We empty the `resultsArray`. This is important because without this, the variable will also store values from previous searches and we would have an entire array of results for every search. Also, since we're searching on every keypress, this list gets populated fairly quickly.
+  * `Line 34 - 39`: We first check if `this` is `window`. It is `window` when we call this function in `line 27`, otherwise, it's an event. When it's an event, we use `event.preventDefault();` to stop the default action of the event.
 
-  * `Line 31 - 36`: Next, we check if the inserted query is longer in length than at least 2 characters, that is 3 characters or more. This is because shorter queries would match a lot of text. For example, a search for 'a' would also return 'Apple', 'Aeroplane' and notice the presence of 2 'a' in Aeroplane. In short, it would create a mess. You can turn this off if you want though. So, if the query is too short, we show the error and also reset the `history`. This is more like a fail proofing method and is not required when the user is searching for the first time. Finally, we call `addClickListener()` so that the newly added button responds to the click.
+  * `Line 40`: We empty the `resultsArray`. This is important because without this, the variable will also store values from previous searches and we would have an entire array of results for every search. Also, since we're searching on every keypress, this list gets populated fairly quickly.
 
-  * `Line 36 - 49`: After we have made sure that the query is at least 3 characters or longer in length, we finally search our index. This is made possible by FlexSearch's `search()` function. This function returns the unique identifiers of our indexed elements in the form of an array. We then take each of that result and use the unique identifier to search for the matching elements in our original array `pagesIndex`. We store these elements in a variable `resultMatches` as an array. We then add another array inside this array `correctedContexts`. We're doing a thing to locate the lines in which the search query exists. We use RegEx to do that. After multiple searches and trials and errors, I found the RegEx that would match an entire line containing a specified string. So, touch it with care.
+  * `Line 41 - 47`: Next, we check if the inserted query is longer in length than at least 2 characters, that is 3 characters or more. This is because shorter queries would match a lot of text. For example, a search for 'a' would also return 'Apple', 'Aeroplane' and notice the presence of 2 'a' in Aeroplane. In short, it would create a mess. You can turn this off if you want though. So, if the query is too short, we show the error and also reset the `history`. This is more like a fail proofing method and is not required when the user is searching for the first time. Finally, we attach the `event listener` so that the newly added button responds to the click.
 
-  * `Line 50 - 65`: We actually display the results. For that, firstly, we check if the size of `resultsArray` is greater than zero. If it's not, we show the no results error. However, if it's greater than zero, there means, there exists at least one result, which is fine. Then, if we have just one result, we should use the singular form of the word 'result' while we should use the plural for any other number of results. Thus, we set a variable to handle that for us. Finally, to let users refresh the page or return to this page using their browser's back button, we use `history.replaceState` to set the search query as a URL query parameter. And just like we discussed before, if a query parameter exists, the search would automatically search for the query. Finally, we show the results using `innerHTML` and add the `click event listener`.
+  * `Line 48 - 63`: After we have made sure that the query is at least 3 characters or longer in length, we finally search our index. This is made possible by FlexSearch's `search()` function. This function returns the unique identifiers of our indexed elements in the form of an array. We then take each of that result and use the unique identifier to search for the matching elements in our original array `pagesIndex`. We store these elements in a variable `resultMatches` as an array. We then add another array inside this array `correctedContexts`. We're doing a thing to locate the lines in which the search query exists. We use RegEx to do that. After multiple searches and trials and errors, I found the RegEx that would match an entire line containing a specified string. So, touch it with care.
 
-* `Line 66:` We're actually calling the `initSearchIndex()` function to start the execution of the `async` function.
+  * `Line 64 - 81`: We actually display the results. For that, firstly, we check if the size of `resultsArray` is greater than zero. If it's not, we show the no results error. However, if it's greater than zero, there means, there exists at least one result, which is fine. Then, if we have just one result, we should use the singular form of the word 'result' while we should use the plural for any other number of results. Thus, we set a variable to handle that for us. Finally, to let users refresh the page or return to this page using their browser's back button, we use `history.replaceState` to set the search query as a URL query parameter. And just like we discussed before, if a query parameter exists, the search would automatically search for the query. Finally, we show the results using `innerHTML` and attach the `event listener` so that the newly added button responds to the click.
 
-* `Line 67`: We're adding an `input event listener` to the search box to give users a search-as-you-type functionality.
+* `Line 85`: We're adding an `input event listener` to the search box to give users a search-as-you-type functionality.
 
-* `Line 68 - 73:` This part of code is handling the `Enter` keypress and running the function instead of refreshing the page. Even though our search results appear instantly, there are chances, especially on mobile devices that the user might hit the Enter key which would cause the page to refresh.
-
-* `Line 74`: Using this line, we're adding a `click event listener` to the search icon in the search box for the people who wish to click the button to search.
+* `Line 86:` We're adding a `submit event listener` to the form, so Enter key is automatically handled.
 
 ## Optimization
 
