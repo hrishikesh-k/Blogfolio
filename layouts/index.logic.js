@@ -335,7 +335,7 @@ window.addEventListener('load', () => {
             timeout: 0,
             status: 'default',
             pos: 'bottom-center',
-            message: '<svg class="icon icon-primary submit-progress"><use xlink:href="/images/sprites.svg#mi-publishedWithChanges"></use></svg><span class=uk-margin-small-left>Submitting...</span>'
+            message: '<svg class="icon icon-primary submit-progress"><use xlink:href=/images/sprites.svg#mi-publishedWithChanges></use></svg><span class=uk-margin-small-left>Submitting...</span>'
           });
           fetch('/', {
             method: 'POST',
@@ -345,13 +345,24 @@ window.addEventListener('load', () => {
             }
           }).then(() => {
             UIkit.notification.closeAll();
-            UIkit.notification({
-              timeout: 5000,
-              status: 'success',
-              pos: 'bottom-center',
-              message: '<svg class="icon uk-margin-small-right"><use xlink:href="/images/sprites.svg#mi-done"></use></svg><span>Successfully submitted.</span>'
-            });
-            contactForm.reset();
+            switch (response.ok) {
+              case true:
+                UIkit.notification({
+                  timeout: 5000,
+                  status: 'success',
+                  pos: 'bottom-center',
+                  message: '<svg class="icon uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-done></use></svg><span>Successfully submitted.</span>'
+                });
+                contactForm.reset();
+                break;
+              default:
+                UIkit.notification({
+                  timeout: 5000,
+                  status: 'danger',
+                  pos: 'bottom-center',
+                  message: '<svg class="icon uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-close></use></svg><span>Something went wrong.</span>'
+                });
+            };
             enableElement(contactForm);
           }).catch(() => {
             UIkit.notification.closeAll();
@@ -359,7 +370,7 @@ window.addEventListener('load', () => {
               timeout: 5000,
               status: 'danger',
               pos: 'bottom-center',
-              message: '<svg class="icon uk-margin-small-right"><use xlink:href="/images/sprites.svg#mi-close"></use></svg><span>Something went wrong.</span>'
+              message: '<svg class="icon uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-close></use></svg><span>Something went wrong.</span>'
             });
             enableElement(contactForm);
           });
@@ -451,7 +462,7 @@ window.addEventListener('load', () => {
               resultsContainer.querySelector('.clear-button').addEventListener('click', clickHandler);
               break;
             default:
-              location.href = "/search/?q=" + searchInput.value.trim();
+              location.href = '/search/?q=' + searchInput.value.trim();
           };
           return searchSite;
         });
@@ -522,7 +533,7 @@ window.addEventListener('load', () => {
                   };
                   history.replaceState('', '', './?q=' + searchInput.value.trim());
                   resultsContainer.style.marginTop = '20px';
-                  resultsContainer.innerHTML = `<p>Found ${resultCount} for <mark>${searchInput.value.trim()}</mark></p>` + resultsArray.map(result => `<div><h3 class=uk-margin-remove>${result.title}</h3><p>` + result.correctedContexts.map(context => `<span>${context}</span>`).join('<span>... </span>') + `</p><a href=${result.href} class="uk-button uk-text-left arrow-btn"><span>Read more</span><svg class="icon icon-primary uk-margin-small-left"><use xlink:href="/images/sprites.svg#mi-east"></use></svg></a></div>`).join('<hr/>') + `<a href=# class="uk-button uk-margin-small-top clear-button" data-turbo=false><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>`;
+                  resultsContainer.innerHTML = `<p>Found ${resultCount} for <mark>${searchInput.value.trim()}</mark></p>` + resultsArray.map(result => `<div><h3 class=uk-margin-remove>${result.title}</h3><p>` + result.correctedContexts.map(context => `<span>${context}</span>`).join('<span>... </span>') + `</p><a href=${result.href} class="uk-button uk-text-left arrow-btn"><span>Read more</span><svg class="icon icon-primary uk-margin-small-left"><use xlink:href=/images/sprites.svg#mi-east></use></svg></a></div>`).join('<hr/>') + `<a href=# class="uk-button uk-margin-small-top clear-button" data-turbo=false><svg class="icon icon-primary uk-margin-small-right"><use xlink:href=/images/sprites.svg#mi-backspace></use></svg><span>Clear</span></a>`;
                   resultsContainer.querySelector('.clear-button').addEventListener('click', clickHandler);
                   break;
                 default:
@@ -672,7 +683,7 @@ window.addEventListener('load', () => {
       timeout: 0,
       status: 'danger',
       pos: 'bottom-center',
-      message: '<svg class=icon><use xlink:href="/images/sprites.svg#mi-offlineBolt"></use></svg><span class=uk-margin-small-left>Looks like you\'re offline.</span>'
+      message: '<svg class=icon><use xlink:href=/images/sprites.svg#mi-offlineBolt></use></svg><span class=uk-margin-small-left>Looks like you\'re offline.</span>'
     });
     switch (contactForm) {
       case null:
@@ -710,7 +721,7 @@ window.addEventListener('load', () => {
         timeout: 5000,
         status: 'success',
         pos: 'bottom-center',
-        message: '<svg class=icon><use xlink:href="/images/sprites.svg#mi-done"></use></svg><span class=uk-margin-small-left>You\'re back online.</span>'
+        message: '<svg class=icon><use xlink:href=/images/sprites.svg#mi-done></use></svg><span class=uk-margin-small-left>You\'re back online.</span>'
       });
       switch (document.querySelector('.offline')) {
         case null:
