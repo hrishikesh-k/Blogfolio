@@ -343,7 +343,7 @@ window.addEventListener('load', () => {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
-          }).then(() => {
+          }).then((response) => {
             UIkit.notification.closeAll();
             switch (response.ok) {
               case true:
