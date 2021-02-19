@@ -56,7 +56,7 @@ After struggling to make my personal portfolio website in Gatsby for months by t
 
 ## Getting started
 
-If someone wants to get a hold of this code, this section contains some trivial getting started information. It is assumed that Hugo (v0.80.0) is installed and configured on the system.
+If someone wants to get a hold of this code, this section contains some trivial getting started information. It is assumed that Hugo (v0.81.0) is installed and configured on the system.
 
 Some features would also need `Node.js`, `Python`, `FFmpeg`, etc. installed, but it's optional.
 
