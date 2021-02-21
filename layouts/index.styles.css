@@ -529,6 +529,9 @@
       counter-increment: post-h4;
       content: counter(post-h2) '.'counter(post-h3) '.'counter(post-h4) ': ';
     }
+    .post-content .uk-button {
+      width: 221px;
+    }
 
   /* /Post */
 
@@ -698,6 +701,9 @@
     }
     .arrow-btn:hover svg {
       transform: translateX(10px);
+    }
+    .arrow-btn-inv:hover svg {
+      transform: translateX(-10px);
     }
     #fab, #nav-btn, .square-btn {
       width: 40px;

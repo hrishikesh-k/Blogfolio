@@ -242,6 +242,7 @@ title: "string"
 date: YYYY-MM-DD
 description: "string"
 tags: ["string", "string"]
+draft: boolean
 static: boolean
 layout: "string"
 menu:
@@ -260,7 +261,9 @@ _build:
 
 `tags` (recommended): It contains the list of tags the post is supposed to be categorized in.
 
-`static` (optional): It accepts only boolean values, that is, true or false. When not specifying, it defaults to false. For all pages with the value of this variable = true, a comment box won't be rendered.
+`draft` (optional): It accepts only boolean values, that is, true or false. When not specifying, it defaults to false. For all pages with the value of this variable = true, the page won't be rendered unless the command-line command has the argument `-D`.
+
+`static` (optional): It accepts only boolean values. When not specifying, it defaults to false. For all pages with the value of this variable = true, the previous/next navigation links and the comment box won't be rendered.
 
 `layout` (optional): It can contain any string value. The value that you provide here should match the name of the file in `layouts/page/*.html`, where * is the value of the string. When this parameter is specified, the page will be generated using the contents of the HTML file and not using the default single page template.
 

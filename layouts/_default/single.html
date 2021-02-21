@@ -11,6 +11,37 @@
           <div class = "uk-card-body">
             {{- .Content -}}
           </div>
+          {{- if not .Params.Static -}}
+            <div class = "uk-flex uk-flex-wrap uk-flex-center uk-flex-between@s">
+              {{- with .PrevInSection -}}
+                <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                  <a href = "{{- .RelPermalink -}}" class = "uk-button uk-button-large uk-text-bold arrow-btn arrow-btn-inv">
+                    <svg class = "icon icon-primary uk-margin-small-right">
+                      <use xlink:href = "/images/sprites.svg#mi-west"></use>
+                    </svg>
+                    <span>
+                      Previous post
+                    </span>
+                  </a>
+                </div>
+              {{- end -}}
+              {{- with .NextInSection -}}
+                {{- if not $.PrevInSection -}}
+                  <div></div>
+                {{- end -}}
+                <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom uk-margin-small-left">
+                  <a href = "{{- .RelPermalink -}}" class = "uk-button uk-button-large uk-text-bold arrow-btn">
+                    <span>
+                      Next post
+                    </span>
+                    <svg class = "icon icon-primary uk-margin-small-left">
+                      <use xlink:href = "/images/sprites.svg#mi-east"></use>
+                    </svg>
+                  </a>
+                </div>
+              {{- end -}}
+            </div>
+          {{- end -}}
         </article>
         {{- if not .Params.Static -}}
           <div class = "uk-card uk-card-small uk-margin-top">
