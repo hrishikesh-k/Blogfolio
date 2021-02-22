@@ -95,6 +95,8 @@
 
     .uk-button {
       transition: none;
+      font-weight: bold;
+      text-transform: none;
       background: rgb(var(--primary)) !important;
     }
     .uk-button span {
@@ -425,7 +427,7 @@
         left: 0;
       }
       .full-page-container h1 + div .uk-button {
-        width: 181px;
+        width: 175px;
       }
       .full-page-container .uk-grid, .full-page-container .card-container {
         height: 100%;
@@ -530,7 +532,7 @@
       content: counter(post-h2) '.'counter(post-h3) '.'counter(post-h4) ': ';
     }
     .post-content .uk-button {
-      width: 221px;
+      width: 200px;
     }
 
   /* /Post */

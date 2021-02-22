@@ -15,6 +15,8 @@ HTML5 introduced some great features for the web - the new `<audio>` and `<video
 
 ## Diving into the code
 
+Before we actually get our hands dirty, let me warn you regarding the fact that my implementation might not be the best one. It's something that 'just works'.
+
 ### HTML
 
 ```HTML
