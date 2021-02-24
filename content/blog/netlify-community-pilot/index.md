@@ -8,6 +8,8 @@ menu:
     parent: "Blog"
 ---
 
+**Note:** Netlify renamed its community, the title, etc. on February 24, 2021. Thus, there might be references in this post that are irrelevant or outdated now. I didn't edit the post to preserve consistency with the systems and information in place before the mentioned date.
+
 ## Introduction
 
 2020 was definitely a strange year for most of us. However, I think it would be unfair to say that the whole year was bad. There were definitely some good things about it too. I'm here talking about something totally unexpectedly good that happened to me. I got promoted in the workplace I wasn't even working! Strange, right? Keep reading.
