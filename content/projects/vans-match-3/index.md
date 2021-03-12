@@ -10,7 +10,7 @@ menu:
 
 ## Introduction
 
-Vans Match-3 is a game created by me in Unity. It's a simple Match-3 game, where we have to match 3 or more tiles of the same image either vertically or horizontally. The game was created to aid my friend [Ananya Mangwani](https://www.instagram.com/mangwaniananya/) in one of her college projects where she had to advertise the brand Vans. I don't exactly know how this game was going to do it, but, that's what was asked out of me, so, I went ahead and made one. It was going to be a new thing for me too considering, I had never made a game before. The game was supposed to be playable on a webpage.
+Vans Match-3 is a game created by me in Unity. It's a simple Match-3 game, where we have to match 3 or more tiles of the same image either vertically or horizontally. The game was created to aid my friend [Ananya Mangwani](ext:https://www.instagram.com/mangwaniananya/) in one of her college projects where she had to advertise the brand Vans. I don't exactly know how this game was going to do it, but, that's what was asked out of me, so, I went ahead and made one. It was going to be a new thing for me too considering, I had never made a game before. The game was supposed to be playable on a webpage.
 
 ## The journey
 
@@ -30,7 +30,7 @@ Notice that you'd find two shoes exactly the same. However, they have a very min
 
 ## End result
 
-The final game was hosted on [Netlify](https://www.netlify.com/) by Ananya Mangwani and it was deleted shortly after the project was done. However, I have uploaded it on my server now for everyone to be able to check it out. [Check out the game here](assets/website1/index.html).
+The final game was hosted on [Netlify](ext:https://www.netlify.com/) by Ananya Mangwani and it was deleted shortly after the project was done. However, I have uploaded it on my server now for everyone to be able to check it out. [Check out the game here](noturbo:assets/website1/index.html).
 
 ![The game](assets/img2.png)
 

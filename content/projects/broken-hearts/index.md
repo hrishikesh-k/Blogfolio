@@ -10,7 +10,7 @@ menu:
 
 ## Introduction
 
-Broken Hearts is a blog I made for my friend [Ananya Mangwani](https://www.instagram.com/mangwaniananya/). It was a project I took up to learn and sharpen my web-development skills a little. It was back in 2018 when Ananya posted on her Instagram, the link to her blog on WordPress. The design was so basic and the URL went on like some weird address, that I offered to redo the blog as I knew I could do better than that. The best part was that she agreed to let me do it. Thus, my journey began.
+Broken Hearts is a blog I made for my friend [Ananya Mangwani](ext:https://www.instagram.com/mangwaniananya/). It was a project I took up to learn and sharpen my web-development skills a little. It was back in 2018 when Ananya posted on her Instagram, the link to her blog on WordPress. The design was so basic and the URL went on like some weird address, that I offered to redo the blog as I knew I could do better than that. The best part was that she agreed to let me do it. Thus, my journey began.
 
 ## The journey
 
@@ -26,7 +26,7 @@ Her WordPress website, as I said before, had a pretty basic layout. Sadly, the w
 
 It's definitely not the best layout you might have seen for a blog, but it did the job of organizing and displaying the content. It still needed a lot of manual work, that is to resize objects at different breakpoints, re-arrange them and most importantly, I was going to have to re-arrange it all for each new post. Coincidentally, she didn't want to post anything till the website was in Muse (and even beyond, for about 2 years!). So, it was more like a free website for me to experiment with.
 
-The domain for the website was acquired on [Freenom](https://www.freendom.com/). It gives free domains ending with some specific TLDs. The website used [Cloudflare](https://www.cloudflare.com/) (for SSL) and was hosted on [InfinityFree](https://www.infinityfree.net/) (yeah, a free PHP server for a static website, let's talk about overkill).
+The domain for the website was acquired on [Freenom](ext:https://www.freendom.com/). It gives free domains ending with some specific TLDs. The website used [Cloudflare](ext:https://www.cloudflare.com/) (for SSL) and was hosted on [InfinityFree](ext:https://www.infinityfree.net/) (yeah, a free PHP server for a static website, let's talk about overkill).
 
 Soon enough after the website was all done, I thought of turning it into an Android app. It wasn't a fancy one, it just loaded the website inside an app, so, it got its own interface, theme, and best of all, push notification on new posts. I had also successfully integrated Firebase Crashlytics in it. I used Android Studio and it was an amazing experience. It was basically my first time ever writing some real code. Yeah, I said, in the beginning, I didn't know much, and so, I can't take the complete credits for the code. I read the official Android documentation a bit, watched a lot of YouTube and posted on a lot of forums. But thanks to this, I got some real (however little) experience in 'programming'.
 
@@ -58,7 +58,7 @@ The good thing about making this website a PWA was that a native Android (or for
 
 ### v4.0 Gatsby
 
-The move to [Gatsby](https://www.gatsbyjs.com/) was revolutionary. It opened up so many more possibilities! Finally, the static blog started seeming not so static. RSS Feed, Site Search and Comments gave the website a complete dynamic feel.
+The move to [Gatsby](ext:https://www.gatsbyjs.com/) was revolutionary. It opened up so many more possibilities! Finally, the static blog started seeming not so static. RSS Feed, Site Search and Comments gave the website a complete dynamic feel.
 
 I had just begun developing in Gatsby. I was amazed by the features and extensibility it offered. The website I was working on was almost done and so, I thought, I could use the same code (with some style modifications) to generate this website. Thus, I began to make changes.
 
@@ -72,9 +72,9 @@ I don't need to mention how great the Jamstack already is. Gatsby makes sure the
 
 Gatsby was great and it did an amazing job at generating the website. However, I had started questioning the concept of Node Modules. So many dependencies, such long download times, then the NPM goes down sometimes and what not. Also, bigger security concern is that, when downloading so many dependencies, who knows what those files are doing on your system. Lastly, these dependencies would be updated frequently and upgrading them would cause something or the other to break, thus countless more hours for debugging and it also used to happen that the developer of the dependencies suddenly stops trying to keep the project alive. There might be more problems, but I think you get the point.
 
-I wasn't questioning this before, but something happened while I was trying to develop this website of mine - I discovered [Hugo](https://www.gohugo.io/). It's a static website generator written in Golang. The benefits, you ask? Firstly, it's a single binary download, that is around 25 MB from GitHub, and around 170 MB when unzipped. Then, the website is written in simple HTML, CSS, JS which makes is really easy to actually develop and maintain for my skill level. Lastly, it's extremely fast at building websites and we're talking about speeds in 2-digit millisecond values.
+I wasn't questioning this before, but something happened while I was trying to develop this website of mine - I discovered [Hugo](ext:https://www.gohugo.io/). It's a static website generator written in Golang. The benefits, you ask? Firstly, it's a single binary download, that is around 25 MB from GitHub, and around 170 MB when unzipped. Then, the website is written in simple HTML, CSS, JS which makes is really easy to actually develop and maintain for my skill level. Lastly, it's extremely fast at building websites and we're talking about speeds in 2-digit millisecond values.
 
-Even then, I was sceptical about making the switch as the Gatsby website was still working fine. But then, I thought of giving Ananya the ease of using a CMS like she did when she had her blog on WordPress. Thus, I introduced Netlify CMS to this website. Now, her blog can be managed by herself while the code does the work automatically. Apart from that major improvement, I had also come across [UIkit](https://getuikit.com/) - an excellent front-end framework. Thus, I could further optimise the styles of that Gatsby website and make it look clean and consistent rather than the mess it was.
+Even then, I was sceptical about making the switch as the Gatsby website was still working fine. But then, I thought of giving Ananya the ease of using a CMS like she did when she had her blog on WordPress. Thus, I introduced Netlify CMS to this website. Now, her blog can be managed by herself while the code does the work automatically. Apart from that major improvement, I had also come across [UIkit](ext:https://getuikit.com/) - an excellent front-end framework. Thus, I could further optimise the styles of that Gatsby website and make it look clean and consistent rather than the mess it was.
 
 The actual development process in Hugo was a breeze, more because I had already experimented a lot in it for my own website. So, a lot of the logic was a simple copy-paste. I finished porting the entire website from Gatsby to Hugo with all the features, that is Pagination, RSS Feed, Comments, Search (improved), Netlify CMS (new), and others in a total of 15 hours. Yes, that's it, an entire blog-like static website all done in just 15 hours.
 
@@ -84,7 +84,7 @@ Thankfully, I discovered that Freenom was working again too, thus the blog now r
 
 ## End result
 
-Her blog is available at [brokenhearts.ml](https://www.brokenhearts.ml/). The entire website can be checked out there and I recommend that you do because she writes some amazing stuff there, but, here's a screenshot of the home page (at the time of writing):
+Her blog is available at [brokenhearts.ml](ext:https://www.brokenhearts.ml/). The entire website can be checked out there and I recommend that you do because she writes some amazing stuff there, but, here's a screenshot of the home page (at the time of writing):
 
 ![Current website](assets/img6.png)
 

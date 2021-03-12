@@ -11,7 +11,7 @@ menu:
 
 ## Introduction
 
-HTML5 introduced some great features for the web - the new `<audio>` and `<video>` tags. This replaced a lot of SWF content on the web. It was a great thing for the most part, but there were some downsides to this too. Primarily, I'd say, the inconsistencies in rendering these tags. While a lot of raw HTML would look same in the major browsers (Chrome, Firefox and Safari), this wasn't the case for these media elements. This would make the UIs inconsistent across browsers, thus developers started using libraries to render media on webpages. So today, I'm going to tell you how I added a waveform-based audio player to my website using a great free library [wavesurfer.js](https://wavesurfer-js.org/).
+HTML5 introduced some great features for the web - the new `<audio>` and `<video>` tags. This replaced a lot of SWF content on the web. It was a great thing for the most part, but there were some downsides to this too. Primarily, I'd say, the inconsistencies in rendering these tags. While a lot of raw HTML would look same in the major browsers (Chrome, Firefox and Safari), this wasn't the case for these media elements. This would make the UIs inconsistent across browsers, thus developers started using libraries to render media on webpages. So today, I'm going to tell you how I added a waveform-based audio player to my website using a great free library [wavesurfer.js](ext:https://wavesurfer-js.org/).
 
 ## Diving into the code
 

@@ -9,7 +9,7 @@ menu:
 ---
 ## Introduction
 
-Traditional animation has been hand-painted. Even though in modern times, we do have applications, manually sketching each frame method doesn't really become obsolete. It's still needed and used. Applications have their set of limitations, but, in sketching, the only limit is your imagination and skill level. In the same lines, 'Animated Sketches' has been my first ever project that was initially sketched and then transformed into digital graphics. This project was brought to me by my friend [Tejal Shinde](https://www.instagram.com/thebubblebreaker_/). She's a graphic designer and an excellent artist. The sketches that I animated are her creations. This was a fairly simple project. It includes just 3 simple animations. However, the part where I had to trace her artworks in the applications was tougher than animation.
+Traditional animation has been hand-painted. Even though in modern times, we do have applications, manually sketching each frame method doesn't really become obsolete. It's still needed and used. Applications have their set of limitations, but, in sketching, the only limit is your imagination and skill level. In the same lines, 'Animated Sketches' has been my first ever project that was initially sketched and then transformed into digital graphics. This project was brought to me by my friend [Tejal Shinde](ext:https://www.instagram.com/thebubblebreaker_/). She's a graphic designer and an excellent artist. The sketches that I animated are her creations. This was a fairly simple project. It includes just 3 simple animations. However, the part where I had to trace her artworks in the applications was tougher than animation.
 
 ## Workflow
 

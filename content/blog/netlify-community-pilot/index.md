@@ -20,7 +20,7 @@ All of this began in the 10<sup>th</sup> month of the year.
 
 ### Week 1
 
-In the first week of October, I stumbled upon a problem with using Netlify's services. Being a free user, I went to their [community forum](https://community.netlify.com/) to ask my question. While I waited to get an answer, I checked out some other posts on the forum. Big mistake (or maybe not)! I found myself quickly addicted to answering questions. Some were pretty basic, some got me thinking, some gave me additional knowledge, some made me research more stuff and so on. It started getting interesting.
+In the first week of October, I stumbled upon a problem with using Netlify's services. Being a free user, I went to their [community forum](ext:https://community.netlify.com/) to ask my question. While I waited to get an answer, I checked out some other posts on the forum. Big mistake (or maybe not)! I found myself quickly addicted to answering questions. Some were pretty basic, some got me thinking, some gave me additional knowledge, some made me research more stuff and so on. It started getting interesting.
 
 ### Week 2 - 3
 

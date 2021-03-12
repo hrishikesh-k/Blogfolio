@@ -1,28 +1,34 @@
 <a class = "uk-link-text link"
-  {{ if strings.HasPrefix .Destination `mailto` }}
+  {{ if strings.HasPrefix .Destination `mail:` }}
     data-turbo = "false"
-    href = "mailto:{{- .Text -}}"
-    onClick = "javascript:window.open('mailto:{{- .Text -}}', 'mail'); event.preventDefault()"
-  {{ else if strings.HasPrefix .Destination `http` }}
+    href = "mailto:{{- strings.TrimLeft `mail:` .Destination | safeURL -}}"
+    onClick = "javascript:window.open('mailto:{{- strings.TrimLeft `mail:` .Destination | safeURL -}}', 'mail'); event.preventDefault()"
+  {{ else if strings.HasPrefix .Destination `ext:` }}
     target = "_blank"
     data-turbo = "false"
     rel = "nofollow noopener noreferrer"
-    href = "{{- .Destination | safeURL -}}"
-  {{- else if strings.HasPrefix .Destination `#` -}}
+    href = "{{- strings.TrimLeft `ext:` .Destination | safeURL -}}"
+  {{- else if strings.HasPrefix .Destination `anc:` -}}
     uk-scroll
     data-turbo = "false"
-    href = "{{- .Destination | safeURL -}}"
-  {{ else if strings.HasPrefix .Destination `/` }}
-    href = "{{- .Destination | safeURL -}}"
-  {{ else }}
-    rel = "nofollow"
+    href = "{{- strings.TrimLeft `anc:` .Destination | safeURL -}}"
+  {{- else if strings.HasPrefix .Destination `dwn:` -}}
+    download
+    data-turbo = "false"
+    href = "{{- strings.TrimLeft `dwn:` .Destination | safeURL -}}"
+  {{ else if strings.HasPrefix .Destination `rel:` }}
+    href = "{{- strings.TrimLeft `rel:` .Destination | safeURL -}}"
+  {{ else if strings.HasPrefix .Destination `noturbo:` }}
+    data-turbo = "false"
+    href = "{{- strings.TrimLeft `noturbo:` .Destination | safeURL -}}"
+  {{ else if strings.HasPrefix .Destination `tel:` }}
     data-turbo = "false"
     href = "{{- .Destination | safeURL -}}"
   {{ end }}>
   <span>
     {{- .Text | htmlUnescape -}}
   </span>
-  {{- if or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "mailto") -}}
+  {{- if or (strings.HasPrefix .Destination "ext:") (strings.HasPrefix .Destination "mail:") -}}
     <svg class = "icon icon-small external-link">
       <use xlink:href = "/images/sprites.svg#mi-launch"></use>
     </svg>

@@ -10,9 +10,9 @@ menu:
 
 ## Introduction
 
-Goodbye Adam is my first ever project in its category. It's a 3D animated short film. I worked on this project with 2 of my friends, [Soham Baviskar](https://www.instagram.com/soham_baviskar/) and [Vaishnavi Madhavi](https://www.instagram.com/23.9.2k/). We worked on the film from our homes during the initial lockdown period in India caused due to COVID-19. It was supposed to be an experiment, a skill test, but the result stunned us as much as the audience. We didn't know if we were up for a challenge that big, but, we went ahead with it anyways.
+Goodbye Adam is my first ever project in its category. It's a 3D animated short film. I worked on this project with 2 of my friends, [Soham Baviskar](ext:https://www.instagram.com/soham_baviskar/) and [Vaishnavi Madhavi](ext:https://www.instagram.com/23.9.2k/). We worked on the film from our homes during the initial lockdown period in India caused due to COVID-19. It was supposed to be an experiment, a skill test, but the result stunned us as much as the audience. We didn't know if we were up for a challenge that big, but, we went ahead with it anyways.
 
-Soham initiated the project after he saw the video [Goodnight Claire](https://www.youtube.com/watch?v=raaAf4M1BEo). Lockdown was new, we didn't have much work, so he was thrilled to take up a project of this level. He pitched the idea to us and after some discussions, we decided to go for it. We didn't know if we were going to be able to do it, but, we still decided to try.
+Soham initiated the project after he saw the video [Goodnight Claire](ext:https://www.youtube.com/watch?v=raaAf4M1BEo). Lockdown was new, we didn't have much work, so he was thrilled to take up a project of this level. He pitched the idea to us and after some discussions, we decided to go for it. We didn't know if we were going to be able to do it, but, we still decided to try.
 
 After a lot of challenges and trials and errors, we did it. We made an actual 3D animated short film, that too in 4K nonetheless.
 

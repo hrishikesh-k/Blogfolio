@@ -10,7 +10,7 @@ menu:
 
 ## Introduction
 
-After finishing the [Dropbox](/projects/dropbox/) project last semester as a preparation for what was coming next, it was finally time that we had to work on a similar project in our Semester 5, just with a slight twist. This time, we had a subject 'Advertising Design' and the entire subject was to make an entire ad campaign, no theory exam, just 100 marks practical paper. Thus, the difficulty level had been upgraded. This time, we had to choose a product category and start from scratch, that is, create our own brand from ground-up. I was kind of excited. I said kind of because due to COVID-19, the schedule got delayed and left us with less time to finish the project. I was in no mood to reduce the quality as compared to the previous one, rather I wanted to upgrade it. Nevertheless, I was quick to make the decision of choosing the most favourable product category for me, 'Laptops'.
+After finishing the [Dropbox](rel:/projects/dropbox/) project last semester as a preparation for what was coming next, it was finally time that we had to work on a similar project in our Semester 5, just with a slight twist. This time, we had a subject 'Advertising Design' and the entire subject was to make an entire ad campaign, no theory exam, just 100 marks practical paper. Thus, the difficulty level had been upgraded. This time, we had to choose a product category and start from scratch, that is, create our own brand from ground-up. I was kind of excited. I said kind of because due to COVID-19, the schedule got delayed and left us with less time to finish the project. I was in no mood to reduce the quality as compared to the previous one, rather I wanted to upgrade it. Nevertheless, I was quick to make the decision of choosing the most favourable product category for me, 'Laptops'.
 
 ## The task
 
@@ -178,7 +178,7 @@ All these advertisements will have a set of hashtags that would promote the post
 
 ### Home Page layout
 
-Just like the previous project, we had to make a home page for this project too. The page didn't have to be functional, just depict the layout. However, it couldn't just be an image either. Last time I made the websites in Tumult Hype, but since my simple HTML/CSS/JS skills had sharpened, this time I spent the time to code the website myself from scratch. I used UIkit as the bae library to style the website and added some dummy content. [Check out the website here](assets/website1/).
+Just like the previous project, we had to make a home page for this project too. The page didn't have to be functional, just depict the layout. However, it couldn't just be an image either. Last time I made the websites in Tumult Hype, but since my simple HTML/CSS/JS skills had sharpened, this time I spent the time to code the website myself from scratch. I used UIkit as the bae library to style the website and added some dummy content. [Check out the website here](noturbo:assets/website1/).
 
 ![Home Page](assets/img24.png)
 

@@ -8,6 +8,8 @@ menu:
     weight: 2
 ---
 
+**[Download my résumé](dwn:/files/résumé.pdf)**
+
 ## About me
 
 ### Introduction
@@ -99,7 +101,7 @@ In the near future, I plan to do my masters along with further developing my ski
 
 ## About the website
 
-This website is made from scratch in [Hugo](https://gohugo.io/). I have used several [open source libraries](#open-source-libraries-used) and countless hours of brain storming, trails and errors, research and what not. It took me a month to get it to the first stable release that included 8 of my best works. The website is now open source, the [source code being available on GitHub](https://github.com/Hrishikesh-K/Portfolio).
+This website is made from scratch in [Hugo](ext:https://gohugo.io/). I have used several [open source libraries](anc:#open-source-libraries-used) and countless hours of brain storming, trails and errors, research and what not. It took me a month to get it to the first stable release that included 8 of my best works. The website is now open source, the [source code being available on GitHub](ext:https://github.com/Hrishikesh-K/Portfolio).
 
 ### Why a website?
 
@@ -123,7 +125,7 @@ I was left with Static Site Generators. SSGs offered almost everything I needed.
 
 I was excited to work in this new framework, but, I needed a design. I could have wrote something from scratch, but, that would have costed me a lot of time, would have got very difficult in very little time and might not have even looked as good. So, I was looking for CSS frameworks that are lightweight and easy to integrate with a vanilla HTML-CSS-JS workflow. After digging for a few days, I found an interesting candidate 'UIKit'. It has an vast catalogue of components and provides a lot of features.
 
-The next part included actually designing a layout. I needed to decide how my content is going to be displayed. The positioning, the image sizes, etc. I browsed through various references and through Hugo themes catalogue. I found an interesting one in that - [Hugo Theme: Dream](https://themes.gohugo.io/theme/hugo-theme-dream/). I decided to try for a similar layout. I quickly experimented with Material Card Component and the results started being eye appealing.
+The next part included actually designing a layout. I needed to decide how my content is going to be displayed. The positioning, the image sizes, etc. I browsed through various references and through Hugo themes catalogue. I found an interesting one in that - [Hugo Theme: Dream](ext:https://themes.gohugo.io/theme/hugo-theme-dream/). I decided to try for a similar layout. I quickly experimented with Material Card Component and the results started being eye appealing.
 
 #### Making of the website in Hugo
 
@@ -135,19 +137,19 @@ I have tried to think about the website from a user's perspective. How can I mak
 
 Though I created the website from scratch, it could not have been possible without some great open source libraries that I've used throughout the website. I can't thank them enough for making this website possible. I've used the following libraries to put this website together:
 
-1. [UIkit](https://github.com/uikit/uikit): Used as a styling solution.
-1. [Gitalk](https://github.com/gitalk/gitalk): Used as a comments engine.
-1. [Turbo](https://github.com/hotwired/turbo): Used as a SPA-style emulator.
-1. [Glide.js](https://github.com/glidejs/glide): Used as a gallery for images.
-1. [DPlayer](https://github.com/DIYgod/DPlayer): Used as a video player + next.
-1. [hls.js](https://github.com/video-dev/hls.js): Used as a M3U8 parser for videos.
-1. [FlexSearch.js](https://github.com/nextapps-de/flexsearch): Used as a search engine.
-1. [wavesurfer.js](https://github.com/katspaugh/wavesurfer.js): Used as an audio player.
+1. [UIkit](ext:https://github.com/uikit/uikit): Used as a styling solution.
+1. [Gitalk](ext:https://github.com/gitalk/gitalk): Used as a comments engine.
+1. [Turbo](ext:https://github.com/hotwired/turbo): Used as a SPA-style emulator.
+1. [Glide.js](ext:https://github.com/glidejs/glide): Used as a gallery for images.
+1. [DPlayer](ext:https://github.com/DIYgod/DPlayer): Used as a video player + next.
+1. [hls.js](ext:https://github.com/video-dev/hls.js): Used as a M3U8 parser for videos.
+1. [FlexSearch.js](ext:https://github.com/nextapps-de/flexsearch): Used as a search engine.
+1. [wavesurfer.js](ext:https://github.com/katspaugh/wavesurfer.js): Used as an audio player.
 
 Other than these libraries, I have used some services without which this website wouldn't have been possible:
 
-1. [GitHub](https://www.github.com/): Used as a version control system and a backend for comments.
-1. [Netlify](https://www.netlify.com/): Used to serve the website, collect analytics*, and submit contact form.
+1. [GitHub](ext:https://www.github.com/): Used as a version control system and a backend for comments.
+1. [Netlify](ext:https://www.netlify.com/): Used to serve the website, collect analytics*, and submit contact form.
 
 *The collected analytics don't include any kind of personal data. They are access logs that every server collects.
 
@@ -155,6 +157,6 @@ Please note: I'm not affiliated with any of these libraries or any of their crea
 
 #### Security of website
 
-I try my best to keep the website secure and safe for the users. I always try to keep the website with the latest versions of the dependencies, generators and APIs. Moreover, the website is a static website, thus, making it harder for anyone to directly breach its security. However, the libraries that I use might have vulnerabilities and they're out of my control. I do my best to update them as soon as a newer version is available, but, 100% safety can't be promised. In case of any security concern, please [contact me](/contact).
+I try my best to keep the website secure and safe for the users. I always try to keep the website with the latest versions of the dependencies, generators and APIs. Moreover, the website is a static website, thus, making it harder for anyone to directly breach its security. However, the libraries that I use might have vulnerabilities and they're out of my control. I do my best to update them as soon as a newer version is available, but, 100% safety can't be promised. In case of any security concern, please [contact me](rel:/contact).
 
 Along with security, the website is designed to respect the privacy of the users. I, as a developer, haven't added any advertisements, or tracking scripts to gather information about the users. However, just like vulnerabilities, I cannot say the same about the libraries and services that I use to generate this website. Although, none of them have been reported to be malicious, I cannot promise the same for future.

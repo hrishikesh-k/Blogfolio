@@ -292,17 +292,21 @@ The website is configured to use Tags as its taxonomy. A page is automatically g
 
 ### Markdown links
 
-Markdown is configured to render 5 types of links:
+Markdown is configured to render 7 types of links:
 
-1. Internal links 1 (`[Link text](/relative-path/)`): Internal links are loaded directly using the [internal navigation of the website](#single-page-application-spa).
+1. Anchor links (`[Link text](anc:#anchor-on-page)`): Anchor links are configured to scroll smoothly to the destination.
 
-1. Internal links 2 (`[Link text](relative-path/)`): You can drop the `/` from the start of the link to exempt that link from the internal navigation. This will cause a full-page reload and have a `nofollow` attribute.
+1. Download links (`[Link text](dwn:/path-to-file/)`): This prompts to download the file at the link without opening it in browser.
 
-1. Anchor links (`[Link text](#relative-path)`): Anchor links are configured to scroll smoothly to the destination.
+1. Relative internal links 1 (`[Link text](rel:/relative-path/)`): Internal links are loaded directly using the [internal navigation of the website](#single-page-application-spa).
 
-1. External links: (`[Link text](https://www.domain.tld/page/)`): External links are configured to open in new tab with the `rel = "nofollow noopener noreferrer"` attribute and also show an indication.
+1. E-mail links (`[Link text](mail:username@example.com)`): `mailto` links open in a new tab (or open the default mail client) and show an icon-indication.
 
-1. `mailto` links (`[user@example.com](mailto)`): `mailto` links open in a new tab (or open the default mail client) and show an indication.
+1. Phone links: (`[Link text](tel:+<country-code><phone-number>)`): `tel` links prompt the browser to open the default Phone application to make a call.
+
+1. Relative internal links 2 (`[Link text](noturbo:/relative-path/)`): This will exclude the link from the internal navigation of the website and cause a full-page reload.
+
+1. External links: (`[Link text](ext:https://www.domain.tld/page/)`): External links are configured to open in new tab with the `rel = "nofollow noopener noreferrer"` attribute and also show an icon-indication.
 
 [Back to TOC](#TOC)
 

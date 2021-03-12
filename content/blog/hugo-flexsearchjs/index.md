@@ -26,7 +26,7 @@ Thus, I chose the client-side search approach. It's supposed to fix most of the 
 
 While the below-mentioned solution is supposed to work with Hugo, it should work with almost any website that works with HTML, CSS and JavaScript, with little or no modifications.
 
-We're going to use a JavaScript library to handle the indexing and searching for us. The library is [FlexSearch.js](https://github.com/nextapps-de/flexsearch). It claims to be the fastest one to do its task and it's also super lightweight and moderately easy to use. It needs all the text to index, pass the data and let it build its index and then it returns the results as an array which we can map and display as individual results.
+We're going to use a JavaScript library to handle the indexing and searching for us. The library is [FlexSearch.js](ext:https://github.com/nextapps-de/flexsearch). It claims to be the fastest one to do its task and it's also super lightweight and moderately easy to use. It needs all the text to index, pass the data and let it build its index and then it returns the results as an array which we can map and display as individual results.
 
 Here's how the workflow will be:
 
