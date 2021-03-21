@@ -1,5 +1,5 @@
 {{- if gt .Paginator.TotalPages 1 -}}
-  <div class = "uk-flex uk-flex-wrap uk-flex-center uk-margin-top">
+  <div class = "uk-flex uk-flex-wrap uk-flex-center uk-padding-small">
     {{- if and (ne .Paginator.PageNumber 1) (ne .Paginator.PageNumber 2) -}}
       <a href = "{{- .Paginator.First.URL -}}" class = "uk-button square-btn">
         <svg class = "icon icon-primary">

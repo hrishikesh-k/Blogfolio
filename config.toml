@@ -23,6 +23,15 @@ verboseLog = true
     url = "/"
     weight = 1
 
+[minify]
+  #minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = false
+    [minify.tdewolff.html]
+      keepDefaultAttrVals = false
+      keepConditionalComments = false
+
 [outputFormats]
   [outputFormats.Logic]
       baseName = "logic"
