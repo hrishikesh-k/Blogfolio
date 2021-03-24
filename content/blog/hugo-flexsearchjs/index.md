@@ -205,9 +205,9 @@ window.addEventListener('load', () => {
 });
 ```
 
-To begin with, we're running this entire piece of code inside the `window load` event. This is to make sure my DOM is all ready for my JavaScript to manipulate it.
+To begin with, we're running this entire piece of code inside the `window load` event. This is to make sure the DOM is all ready for my JavaScript to manipulate it, especially because we're loading the JavaScript using `defer` attribute.
 
-* `Line 2 - 16`: We're declaring various variables that we'll need in the rest of the code. Some are just declared, while some are defined. The `line 8 - 16` is defining a function to add a `click event listener` to our clear button which we would dynamically add in some time. Clicking it would clear the results, reset the search input,, reset the URL and even remove the event listener. 
+* `Line 2 - 16`: We're declaring various variables that we'll need in the rest of the code. Some are just declared, while some are defined. The `line 8 - 16` is defining a function to add a `click event listener` to our clear button which we would dynamically add in some time. Clicking it would clear the results, reset the search input, reset the URL and even remove the event listener. 
 
 * `Line 17 - 32`: We're declaring a self-executing `async` function to initialise and build a search index from the JSON file. It's important to make it `async` because we need to use `await` statements. This is because JavaScript is synchronous in nature (by default). So, anything that we start processing would continue to do so until it ends, and thus the main thread would be busy, pausing execution of anything else. We need to keep it `async` because the JSON file could be over a few hundred kibibytes in some cases, and depending on the user's network, it might take time to load. In such cases, if we don't make it `async`, the rest of the JavaScript won't work till the JSON loads.
 
