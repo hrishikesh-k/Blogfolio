@@ -145,9 +145,9 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── flexsearch-v0.7.0-light.js
 │   │   ├── gitalk-v1.7.0.js
 │   │   ├── glide-v3.4.1.js
-│   │   ├── hls-v1.0.0-rc.6-light.js
+│   │   ├── hls-v1.0.0-light.js
 │   │   ├── saola-animate-v3.0.0.js
-│   │   ├── turbo-v7.0.0-beta.4.js
+│   │   ├── turbo-v7.0.0-beta.5.js
 │   │   ├── uikit-v3.6.18.js
 │   │   └── wavesurfer-v4.4.0.js
 │   ├── browserconfig.xml
