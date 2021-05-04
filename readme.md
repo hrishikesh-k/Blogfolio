@@ -128,7 +128,7 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   ├── css/
 │   │   ├── gitalk-v1.7.0.css
 │   │   ├── glide-v3.4.1.css
-│   │   └── uikit-v3.6.20.css
+│   │   └── uikit-v3.6.21.css
 │   ├── images/
 │   │   ├── chrome-icon-192.png
 │   │   ├── chrome-icon-512.png
@@ -148,8 +148,8 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── hls-v1.0.2-light.js
 │   │   ├── saola-animate-v3.0.0.js
 │   │   ├── turbo-v7.0.0-beta.5.js
-│   │   ├── uikit-v3.6.20.js
-│   │   └── wavesurfer-v4.4.0.js
+│   │   ├── uikit-v3.6.21.js
+│   │   └── wavesurfer-v5.0.0.js
 │   ├── browserconfig.xml
 │   └── favicon.ico
 ├── config.toml
