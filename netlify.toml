@@ -2,3 +2,8 @@
   from = "/*"
   to = "/404/"
   status = 404
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
