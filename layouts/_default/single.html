@@ -50,12 +50,15 @@
                 Comments
               </p>
               <form id = "comment-form" autocomplete = "off" data-turbo = "false">
-                <label for = "name-box">Name</label>
-                <input type = "text" name = "name" placeholder = "Required" id = "name-box" class = "uk-input" required>
-                <label for = "email-box">E-mail</label>
-                <input type = "email" name = "email" placeholder = "Optional" id = "email-box" class = "uk-input">
-                <label for = "comment-box">Comment</label>
-                <textarea rows = "5" name = "comment" placeholder = "Required; Markdown is supported" id = "comment-box" class = "uk-textarea uk-margin" required></textarea>
+                <div class = "uk-margin">
+                  <input class = "uk-input" type = "text" name = "name" id = "name-box" placeholder = "Name" required>
+                </div>
+                <div class = "uk-margin">
+                  <input class = "uk-input" type = "email" name = "email" id = "email-box" placeholder = "Email">
+                </div>
+                <div class = "uk-margin">
+                  <textarea class = "uk-textarea"  name = "comment" rows = "5" placeholder = "Comment (Markdown)" required></textarea>
+                </div>
                 <button type = "button" class = "uk-button uk-margin">Preview</button>
                 <button type = "submit" class = "uk-button uk-margin">Submit</button>
               </form>

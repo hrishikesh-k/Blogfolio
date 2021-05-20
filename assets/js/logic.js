@@ -391,9 +391,8 @@ window.addEventListener('load', () => {
         break;
       default:
         new OpinionJS({
-          commentContainer: 'body',
+          commentContainer: 'article + .uk-card > .uk-card-body',
           dateFormat: 'en-IN',
-          form: '#comment-form',
           loadButton: '#load-button',
           title: document.title.split('|')[0].trim().toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (spaces, firstCharacters) => firstCharacters.toUpperCase())
         })
