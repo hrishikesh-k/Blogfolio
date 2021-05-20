@@ -1,3 +1,5 @@
+import OpinionJS from 'opinionjs'
+
 window.addEventListener('load', () => {
 
   var searchSite;
@@ -383,7 +385,7 @@ window.addEventListener('load', () => {
   })();
 
   var setupComments = (function setupComments() {
-    var comments = document.querySelector('#comments-form');
+    var comments = document.querySelector('#comment-form');
     switch (comments) {
       case null:
         break;

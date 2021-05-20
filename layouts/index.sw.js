@@ -13,7 +13,7 @@ self.addEventListener('install', event => {
       {{- range readDir "/static/js/" -}}
         '/js/{{- .Name -}}',
       {{- end -}}
-      '/js/logic.js',
+      '/js/logic.min.js',
       {{- range readDir "/static/images/" -}}
         '/images/{{- .Name -}}',
       {{- end -}}
