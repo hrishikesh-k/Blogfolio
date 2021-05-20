@@ -394,6 +394,7 @@ window.addEventListener('load', () => {
           commentContainer: 'body',
           dateFormat: 'en-IN',
           form: '#comment-form',
+          loadButton: '#load-button',
           title: document.title.split('|')[0].trim().toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (spaces, firstCharacters) => firstCharacters.toUpperCase())
         })
     };

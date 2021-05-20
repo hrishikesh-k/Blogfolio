@@ -88,7 +88,7 @@
     <script src = "/js/turbo-v7.0.0-beta.5.js" defer></script>
     <script src = "/js/saola-animate-v3.0.0.js" defer></script>
     <script src = "/js/flexsearch-v0.7.0-light.js" defer></script>
-    <script src = "{{- (resources.Get "/js/logic.js" | js.Build).RelPermalink -}}" defer></script>
+    <script src = "{{- (resources.Get "/js/logic.js" | js.Build (dict "minify" "true")).RelPermalink -}}" defer></script>
     {{- if .IsHome -}}
       <script type = "application/ld+json">
         {
