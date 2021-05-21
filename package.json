@@ -1,5 +1,11 @@
 {
   "dependencies": {
-    "opinionjs": "0.0.9"
+    "@glidejs/glide": "3.4.1",
+    "@hotwired/turbo": "7.0.0-beta.5",
+    "flexsearch": "0.6.32",
+    "hls.js": "1.0.5-0.canary.7402",
+    "opinionjs": "0.0.9",
+    "uikit": "3.6.22",
+    "wavesurfer.js": "5.0.1"
   }
 }

@@ -1,4 +1,10 @@
+import Hls from 'hls.js'
 import OpinionJS from 'opinionjs'
+import FlexSearch from 'flexsearch'
+import WaveSurfer from 'wavesurfer.js'
+import * as Turbo from '@hotwired/turbo'
+import Glide, {Controls, Breakpoints} from '@glidejs/glide/dist/glide.modular.esm'
+import UIkit from './uikit'
 
 window.addEventListener('load', () => {
 
@@ -269,7 +275,7 @@ window.addEventListener('load', () => {
         classes: {
           activeNav: 'uk-active',
         }
-      }).mount();
+      }).mount({Controls, Breakpoints});
       glidePlayers.push(glide);
     });
     return loadGallery;
@@ -838,6 +844,6 @@ window.addEventListener('load', () => {
     });
   })();
 
-  navigator.serviceWorker.register('/sw.js');
+  //navigator.serviceWorker.register('/sw.js');
 
 });
