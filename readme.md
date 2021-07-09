@@ -146,8 +146,12 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── dplayer-v1.26.0.js
 │   │   ├── flexsearch-v0.7.0-light.js
 │   │   ├── glide-v3.4.1.js
+<<<<<<< HEAD
 │   │   ├── hls-v1.0.4-light.js
 │   │   ├── opinionjs-v1.0.0.js
+=======
+│   │   ├── hls-v1.0.2-light.js
+>>>>>>> parent of eac807e (Updated hls.js)
 │   │   ├── saola-animate-v3.0.0.js
 │   │   ├── turbo-v7.0.0-beta.5.js
 │   │   ├── uikit-v3.6.22.js
