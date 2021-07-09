@@ -1,3 +1,14 @@
+[build]
+  publish = "public"
+  command = "hugo --minify"
+
+[build.processing]
+  skip_processing = true
+
+[build.environment]
+  HUGO_ENV = "production"
+  HUGO_VERSION = "0.83.0"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"

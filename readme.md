@@ -129,8 +129,12 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   └── offline.js
 │   ├── css/
 │   │   ├── glide-v3.4.1.css
+<<<<<<< HEAD
 │   │   ├── opinionjs-v1.0.0.css
 │   │   └── uikit-v3.6.22.css
+=======
+│   │   └── uikit-v3.6.20.css
+>>>>>>> parent of ba8526d (Updated UIkit, wavesurfer.js)
 │   ├── images/
 │   │   ├── chrome-icon-192.png
 │   │   ├── chrome-icon-512.png
@@ -154,8 +158,13 @@ Here's a vital file structure to help you understand it better. Only the vital f
 >>>>>>> parent of eac807e (Updated hls.js)
 │   │   ├── saola-animate-v3.0.0.js
 │   │   ├── turbo-v7.0.0-beta.5.js
+<<<<<<< HEAD
 │   │   ├── uikit-v3.6.22.js
 │   │   └── wavesurfer-v5.0.0.js
+=======
+│   │   ├── uikit-v3.6.20.js
+│   │   └── wavesurfer-v4.4.0.js
+>>>>>>> parent of ba8526d (Updated UIkit, wavesurfer.js)
 │   ├── browserconfig.xml
 │   └── favicon.ico
 ├── config.toml
