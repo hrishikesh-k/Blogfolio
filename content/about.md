@@ -138,17 +138,17 @@ I have tried to think about the website from a user's perspective. How can I mak
 Though I created the website from scratch, it could not have been possible without some great open source libraries that I've used throughout the website. I can't thank them enough for making this website possible. I've used the following libraries to put this website together:
 
 1. [UIkit](ext:https://github.com/uikit/uikit): Used as a styling solution.
+1. [Gitalk](ext:https://github.com/gitalk/gitalk): Used as a comments engine.
 1. [Turbo](ext:https://github.com/hotwired/turbo): Used as a SPA-style emulator.
 1. [Glide.js](ext:https://github.com/glidejs/glide): Used as a gallery for images.
 1. [DPlayer](ext:https://github.com/DIYgod/DPlayer): Used as a video player + next.
 1. [hls.js](ext:https://github.com/video-dev/hls.js): Used as a M3U8 parser for videos.
-1. [OpinionJS](ext:https://github.com/Hrishikesh-K/OpinionJS): Used as a comments engine.
 1. [FlexSearch.js](ext:https://github.com/nextapps-de/flexsearch): Used as a search engine.
 1. [wavesurfer.js](ext:https://github.com/katspaugh/wavesurfer.js): Used as an audio player.
 
 Other than these libraries, I have used some services without which this website wouldn't have been possible:
 
-1. [GitHub](ext:https://www.github.com/): Used as a version control system.
+1. [GitHub](ext:https://www.github.com/): Used as a version control system and a backend for comments.
 1. [Netlify](ext:https://www.netlify.com/): Used to serve the website, collect analytics*, and submit contact form.
 
 *The collected analytics don't include any kind of personal data. They are access logs that every server collects.

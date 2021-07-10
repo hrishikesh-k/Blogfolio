@@ -73,9 +73,6 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   ├── error404.saola
 │   ├── home.saola
 │   └── offline.saola
-├── assets/
-│   ├── js/
-│   │   └── logic.js
 ├── content/
 │   ├── blog/
 │   │   └── _index.md
@@ -116,6 +113,7 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   └── video.html
 │   ├── index.html
 │   ├── index.json
+│   ├── index.logic.js
 │   ├── index.manifest.json
 │   ├── index.sprites.svg
 │   ├── index.styles.css
@@ -128,13 +126,9 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── home.js
 │   │   └── offline.js
 │   ├── css/
+│   │   ├── gitalk-v1.7.0.css
 │   │   ├── glide-v3.4.1.css
-<<<<<<< HEAD
-│   │   ├── opinionjs-v1.0.0.css
-│   │   └── uikit-v3.6.22.css
-=======
-│   │   └── uikit-v3.6.20.css
->>>>>>> parent of ba8526d (Updated UIkit, wavesurfer.js)
+│   │   └── uikit-v3.6.21.css
 │   ├── images/
 │   │   ├── chrome-icon-192.png
 │   │   ├── chrome-icon-512.png
@@ -149,22 +143,13 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   ├── js/
 │   │   ├── dplayer-v1.26.0.js
 │   │   ├── flexsearch-v0.7.0-light.js
+│   │   ├── gitalk-v1.7.0.js
 │   │   ├── glide-v3.4.1.js
-<<<<<<< HEAD
-│   │   ├── hls-v1.0.4-light.js
-│   │   ├── opinionjs-v1.0.0.js
-=======
-│   │   ├── hls-v1.0.2-light.js
->>>>>>> parent of eac807e (Updated hls.js)
+│   │   ├── hls-v1.0.3-light.js
 │   │   ├── saola-animate-v3.0.0.js
 │   │   ├── turbo-v7.0.0-beta.5.js
-<<<<<<< HEAD
-│   │   ├── uikit-v3.6.22.js
+│   │   ├── uikit-v3.6.21.js
 │   │   └── wavesurfer-v5.0.0.js
-=======
-│   │   ├── uikit-v3.6.20.js
-│   │   └── wavesurfer-v4.4.0.js
->>>>>>> parent of ba8526d (Updated UIkit, wavesurfer.js)
 │   ├── browserconfig.xml
 │   └── favicon.ico
 ├── config.toml
@@ -496,7 +481,17 @@ There's a contact form set up to work with Netlify forms + AJAX submission. It s
 
 ### Comments
 
-A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [OpinionJS](https://github.com/Hrishikesh-K/OpinionJS).
+A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [Gitalk](https://github.com/gitalk/gitalk). You'd have to change it with your values in `./layouts/index.logic.js`. You'd have to update the following:
+
+```js
+new Gitalk({
+  repo: 'string',
+  owner: 'string',
+  admin: 'string',
+  clientID: 'string',
+  clientSecret: 'string',
+}).render(comments)
+```
 
 [Back to TOC](#TOC)
 

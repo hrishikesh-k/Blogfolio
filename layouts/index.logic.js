@@ -1,11 +1,3 @@
-import Hls from 'hls.js'
-import OpinionJS from 'opinionjs'
-import FlexSearch from 'flexsearch'
-import WaveSurfer from 'wavesurfer.js'
-import * as Turbo from '@hotwired/turbo'
-import Glide, {Controls, Breakpoints} from '@glidejs/glide/dist/glide.modular.esm'
-import UIkit from './uikit'
-
 window.addEventListener('load', () => {
 
   var searchSite;
@@ -275,7 +267,7 @@ window.addEventListener('load', () => {
         classes: {
           activeNav: 'uk-active',
         }
-      }).mount({Controls, Breakpoints});
+      }).mount();
       glidePlayers.push(glide);
     });
     return loadGallery;
@@ -391,17 +383,56 @@ window.addEventListener('load', () => {
   })();
 
   var setupComments = (function setupComments() {
-    var comments = document.querySelector('#comment-form');
+    var comments = document.querySelector('#comments-container');
     switch (comments) {
       case null:
         break;
       default:
-        new OpinionJS({
-          commentContainer: 'article + .uk-card > .uk-card-body',
-          dateFormat: 'en-IN',
-          loadButton: '#load-button',
-          title: document.title.split('|')[0].trim().toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (spaces, firstCharacters) => firstCharacters.toUpperCase())
-        })
+        new Gitalk({
+          language: 'en',
+          repo: 'Blogfolio',
+          owner: 'Hrishikesh-K',
+          admin: 'Hrishikesh-K',
+          clientID: '9c0d44100d68d8d5514c',
+          id: location.pathname.split('/')[2],
+          body: 'Comments for URL: ' + location.href,
+          clientSecret: '0762e1de3d53f5578124e97d389f249c8d26d3f7',
+          flipMoveOptions: {
+            staggerDelayBy: 0,
+            leaveAnimation: 'fade',
+            enterAnimation: 'fade',
+            appearAnimation: 'fade'
+          }
+        }).render(comments, () => {
+          var observer = new MutationObserver(() => {
+            switch (comments.contains(comments.querySelector('.gt-initing'))) {
+              case true:
+                break;
+              default:
+                switch (typeof observer == 'undefined') {
+                  case true:
+                    break;
+                  default:
+                    observer.disconnect();
+                };
+                var links = comments.querySelectorAll('.gt-container a[href]');
+                switch (links) {
+                  case null:
+                    break;
+                  default:
+                    links.forEach(link => {
+                      link.addEventListener('click', event => {
+                        event.preventDefault();
+                        window.open(event.target.getAttribute('href'), '_blank');
+                      });
+                    });
+                };
+            };
+          }).observe(comments, {
+            subtree: true,
+            childList: true
+          });
+        });
     };
     return setupComments;
   })();
@@ -844,6 +875,6 @@ window.addEventListener('load', () => {
     });
   })();
 
-  //navigator.serviceWorker.register('/sw.js');
+  navigator.serviceWorker.register('/sw.js');
 
 });

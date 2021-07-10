@@ -24,7 +24,7 @@ verboseLog = true
     weight = 1
 
 [minify]
-  #minifyOutput = true
+  minifyOutput = true
   [minify.tdewolff]
     [minify.tdewolff.css]
       keepCSS2 = false
@@ -33,6 +33,11 @@ verboseLog = true
       keepConditionalComments = false
 
 [outputFormats]
+  [outputFormats.Logic]
+      baseName = "logic"
+      isPlainText = true
+      mediaType = "application/javascript"
+      path = "js"
   [outputFormats.Manifest]
       baseName = "manifest"
       isPlainText = true
@@ -53,7 +58,7 @@ verboseLog = true
     mediaType = "application/javascript"
 
 [outputs]
-  home = ["HTML", "JSON", "Manifest", "Sprites", "Styles", "SW"]
+  home = ["HTML", "JSON", "Logic", "Manifest", "Sprites", "Styles", "SW"]
 
 [params]
   author = "Hrishikesh Kokate"
