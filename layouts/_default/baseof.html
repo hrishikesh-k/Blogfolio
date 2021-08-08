@@ -78,7 +78,7 @@
     <link href="/images/safari-home.png" rel = "apple-touch-icon" sizes = "180x180">
     <link href = "/css/uikit-v3.7.2.css" rel = "stylesheet">
     <link href = "/css/glide-v3.4.1.css" rel = "stylesheet">
-    <link href = "{{- (resources.Get "threadtalk.scss" | toCSS (dict "targetPath" "css/threadtalk.css") ).RelPermalink -}}" rel = "stylesheet"/>
+    <link href = "{{- (resources.Get "threadtalk.scss" | toCSS (dict "outputStyle" "compressed" "targetPath" "css/threadtalk.css") ).RelPermalink -}}" rel = "stylesheet"/>
     <link href = "/css/styles.css" rel = "stylesheet">
     <script src = "/js/glide-v3.4.1.js" defer></script>
     <script src = "/js/uikit-v3.7.2.js" defer></script>

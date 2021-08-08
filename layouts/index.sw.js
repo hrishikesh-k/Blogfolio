@@ -9,6 +9,7 @@ self.addEventListener('install', event => {
       {{- range readDir "/static/css/" -}}
         '/css/{{- .Name -}}',
       {{- end -}}
+      '/css/threadtalk.css',
       '/css/styles.css',
       {{- range readDir "/static/js/" -}}
         '/js/{{- .Name -}}',

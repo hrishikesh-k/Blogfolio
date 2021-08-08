@@ -15,6 +15,7 @@ Repository of my personal website (portfolio + blog), made in Hugo, hosted on Ne
   * [File structure](#file-structure)
     + [`./` directory](#-diretory)
     + [`./animations/` directory](#animations-directory)
+    + [`./assets/` directory](#assets-directory)
     + [`./content/` directory](#content-directory)
     + [`./layouts` directory](#layouts-directory)
     + [`./static/` directory](#static-directory)
@@ -56,9 +57,9 @@ After struggling to make my personal portfolio website in Gatsby for months by t
 
 ## Getting started
 
-If someone wants to get a hold of this code, this section contains some trivial getting started information. It is assumed that Hugo (v0.81.0) is installed and configured on the system.
+If someone wants to get a hold of this code, this section contains some trivial getting started information. It is assumed that Hugo (v0.84.0) is installed and configured on the system.
 
-Some features would also need `Node.js`, `Python`, `FFmpeg`, etc. installed, but it's optional.
+Some features would also need `Node.js`, `Python`, `FFmpeg`, etc. installed, but it's optional. It's recommended to run `npm i` before proceeding to install the dependencies listed in `package.json`.
 
 [Back to TOC](#TOC)
 
@@ -73,6 +74,9 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   ├── error404.saola
 │   ├── home.saola
 │   └── offline.saola
+├── assets/
+│   ├── logic.js
+│   └── threadtalk.scss
 ├── content/
 │   ├── blog/
 │   │   └── _index.md
@@ -113,7 +117,6 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   └── video.html
 │   ├── index.html
 │   ├── index.json
-│   ├── index.logic.js
 │   ├── index.manifest.json
 │   ├── index.sprites.svg
 │   ├── index.styles.css
@@ -164,7 +167,13 @@ In the root directory, the 2 most important files are `config.toml` and `netlify
 
 #### `./animations/` directory
 
-his folder contains the HTML5 animations I made in [Saola Animate v3.0.0](https://atomisystems.com/saola-animate/). So, unless you want to edit the animations, this folder can be safely deleted.
+This folder contains the HTML5 animations I made in [Saola Animate v3.0.0](https://atomisystems.com/saola-animate/). So, unless you want to edit the animations, this folder can be safely deleted.
+
+[Back to TOC](#TOC)
+
+#### `./assets/` directory
+
+This folder contains the files used by Hugo to process as CSS and JS. It wasn't needed till I had everything as static CSS/JS files. But I had to integrate ThreadTalk.JS which doesn't have a UMD build. To import that, `npm` is needed.
 
 [Back to TOC](#TOC)
 
@@ -189,8 +198,6 @@ This is one of the most important directories as it contains all the templates a
 1. `index.html`: Home page.
 
 1. `index.json`: Search index.
-
-1. `index.logic.js`: Custom JavaScript.
 
 1. `index.manifest.json`: Manifest for PWA.
 
@@ -479,7 +486,7 @@ There's a contact form set up to work with Netlify forms + AJAX submission. It s
 
 ### Comments
 
-A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [ThreadTalk.JS](https://github.com/Hrishikesh-K/threadtalk.js/). You'd have to change it with your config in `./assets/threadtalk.js`. You'd have to update the following:
+A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [ThreadTalk.JS](https://github.com/Hrishikesh-K/threadtalk.js/). You'd have to change it with your config in `./assets/logic.js`. You'd have to update the following:
 
 ```js
 new ThreadTalkJS({

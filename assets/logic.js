@@ -443,7 +443,7 @@ window.addEventListener('load', () => {
         (async () => {
           var indexFile = await fetch('/index.json');
           pagesIndex = await indexFile.json();
-          searchIndex = new FlexSearch();
+          searchIndex = new FlexSearch.Index;
           pagesIndex.forEach(page => {
             searchIndex.add(page.href, page.content + page.title);
           });
