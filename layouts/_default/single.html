@@ -50,7 +50,53 @@
                 Comments
               </p>
               <div class = "uk-margin-auto" id = "comments-container">
-                
+                <form id = "comment-form" class = "uk-form-stacked uk-margin-auto" autocomplete = "off">
+                  <div class = "uk-margin">
+                    <label class = "uk-form-label" for = "name-box">
+                      Name
+                    </label>
+                    <div class = "uk-form-controls">
+                      <input class = "uk-input uk-form-width-large" id = "name-box" type = "text" placeholder = "Required" name = "name" required>
+                    </div>
+                  </div>
+                  <div class = "uk-margin">
+                    <label class = "uk-form-label" for = "email-box">
+                      Email
+                    </label>
+                    <div class = "uk-form-controls">
+                      <input class = "uk-input uk-form-width-large" id = "email-box" type = "email" placeholder = "Optional" name = "email" required>
+                    </div>
+                  </div>
+                  <div class = "uk-margin">
+                    <label class = "uk-form-label" for = "comment-box">
+                      Comment
+                    </label>
+                    <div class = "uk-form-controls">
+                      <textarea class = "uk-textarea uk-form-width-large" id = "comment-box" type = "text" placeholder = "Your message" name = "comment" required></textarea>
+                    </div>
+                  </div>
+                  <div class = "uk-flex uk-flex-wrap">
+                    <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom">
+                      <button type = "button" class = "uk-button uk-text-bold">
+                        <span>
+                          Preview
+                        </span>
+                      </button>
+                    </div>
+                    <div class = "uk-margin-small-top uk-margin-small-right uk-margin-small-bottom">
+                      <button type = "submit" class = "uk-button uk-text-bold">
+                        <span>
+                          Submit
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <button type = "submit" class = "uk-button uk-text-bold" id = "load-button">
+                  <span>
+                    Load comments
+                  </span>
+                </button>
               </div>
             </div>
           </div>

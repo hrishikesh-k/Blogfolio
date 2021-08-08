@@ -487,6 +487,8 @@ new ThreadTalkJS({
 })
 ```
 
+There's a lot more config required. So, do check out the docs of the library.
+
 [Back to TOC](#TOC)
 
 ### Search

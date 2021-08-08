@@ -78,6 +78,7 @@
     <link href="/images/safari-home.png" rel = "apple-touch-icon" sizes = "180x180">
     <link href = "/css/uikit-v3.7.2.css" rel = "stylesheet">
     <link href = "/css/glide-v3.4.1.css" rel = "stylesheet">
+    <link href = "{{- (resources.Get "threadtalk.scss" | toCSS (dict "targetPath" "css/threadtalk.css") ).RelPermalink -}}" rel = "stylesheet"/>
     <link href = "/css/styles.css" rel = "stylesheet">
     <script src = "/js/glide-v3.4.1.js" defer></script>
     <script src = "/js/uikit-v3.7.2.js" defer></script>
@@ -87,7 +88,7 @@
     <script src = "/js/turbo-v7.0.0-beta.8.js" defer></script>
     <script src = "/js/saola-animate-v3.0.0.js" defer></script>
     <script src = "/js/flexsearch-v0.7.2-light.js" defer></script>
-    <script src = "/js/logic.js" defer></script>
+    <script src = "{{- (resources.Get "logic.js" | js.Build (dict "minify" "true" "targetPath" "js/logic.js")).RelPermalink -}}" defer></script>
     {{- if .IsHome -}}
       <script type = "application/ld+json">
         {

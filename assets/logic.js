@@ -1,3 +1,5 @@
+import ThreadTalkJS from 'threadtalkjs'
+
 window.addEventListener('load', () => {
 
   var searchSite;
@@ -6,6 +8,7 @@ window.addEventListener('load', () => {
   var resizeInput;
   var messageInput;
   var clickHandler;
+  var commentEngine;
   var submitContact;
   var placeAnimation;
   var onlineFunctions;
@@ -388,6 +391,11 @@ window.addEventListener('load', () => {
       case null:
         break;
       default:
+        commentEngine = new ThreadTalkJS({
+          commentContainer: '#comments-container',
+          dateFormat: 'en-IN',
+          title: document.title.split('|')[0].trim().toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (spaces, firstCharacters) => firstCharacters.toUpperCase())
+        })
         break;
     };
     return setupComments;
@@ -779,6 +787,15 @@ window.addEventListener('load', () => {
 
   (function turboClickEvent() {
     document.documentElement.addEventListener('turbo:click', () => {
+      switch (commentEngine) {
+        case null:
+        case undefined:
+          break;
+        default:
+          commentEngine.destroy();
+          commentEngine = null;
+          break;
+      }
       switch (wavesurfers.length > 0) {
         case true:
           wavesurfers.forEach(wavesurfer => {
