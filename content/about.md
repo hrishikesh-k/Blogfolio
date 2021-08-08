@@ -119,7 +119,7 @@ I could have used a website building application and if Adobe Muse would have ex
 
 I could have used a PHP framework like WordPress. But, I wasn't ready to pay anyone and finding a good PHP host for free is a lost cause. That ruled out WordPress pretty easily.
 
-I was left with Static Site Generators. SSGs offered almost everything I needed. CMS like features, static generated code, etc. However, I still had to choose which one to go with. I thought of starting my own website when I got a little familiar with Node.js, React, Gatsby and so on. I was working on 2 websites in Gatsby already and had gained some confidence. So, I thought of using Gatsby itself. However, the websites I created were based on a starter and I just had customised them.  I knew that with my then skill level, I just won't be able to make one from scratch. I started looking for other starters and themes and there were a lot, but, I'm very choosy. I always ended up finding one little thing wrong about something and I used to try to fix that. If I could, I'd try customising it further, but that'd fail anyways. If I couldn't, then that was a dead end already. I even considered NuxtJS, but that didn't work out either. After almost reaching a dead end, I discovered Hugo. The fact that I could easily write basic HTML code that would generate an entire website for me, kept me hooked. I was pretty much familiar with HTML, CSS and vanilla JS. I knew that I can create a basic website by using these. So, that's how I decided to go with Hugo.
+I was left with Static Site Generators. SSGs offered almost everything I needed. CMS like features, static generated code, etc. However, I still had to choose which one to go with. I thought of starting my own website when I got a little familiar with Node.js, React, Gatsby and so on. I was working on 2 websites in Gatsby already and had gained some confidence. So, I thought of using Gatsby itself. However, the websites I created were based on a starter and I just had customised them. I knew that with my then skill level, I just won't be able to make one from scratch. I started looking for other starters and themes and there were a lot, but, I'm very choosy. I always ended up finding one little thing wrong about something and I used to try to fix that. If I could, I'd try customising it further, but that'd fail anyways. If I couldn't, then that was a dead end already. I even considered NuxtJS, but that didn't work out either. After almost reaching a dead end, I discovered Hugo. The fact that I could easily write basic HTML code that would generate an entire website for me, kept me hooked. I was pretty much familiar with HTML, CSS and vanilla JS. I knew that I can create a basic website by using these. So, that's how I decided to go with Hugo.
 
 #### Designing the website
 
@@ -129,7 +129,7 @@ The next part included actually designing a layout. I needed to decide how my co
 
 #### Making of the website in Hugo
 
-In my journey of making this website, I have found Hugo to be amazing. The blazing fast build times and an amazing community to help you whenever you're stuck is a selling point for the application. Along with that, it has a lot of features out of the box that make static website generation a breeze. No complicated scripting is required to make  simple website. The learning curve is nearly zero (or very low) if you already know HTML, CSS and JavaScript.
+In my journey of making this website, I have found Hugo to be amazing. The blazing fast build times and an amazing community to help you whenever you're stuck is a selling point for the application. Along with that, it has a lot of features out of the box that make static website generation a breeze. No complicated scripting is required to make simple website. The learning curve is nearly zero (or very low) if you already know HTML, CSS and JavaScript.
 
 I have tried to think about the website from a user's perspective. How can I make it easier for a user to figure out the website and use it? How should something be placed, where to give visual feedback, etc. Asking and answering such questions myself has helped me develop this website.
 
@@ -151,7 +151,7 @@ Other than these libraries, I have used some services without which this website
 1. [GitHub](ext:https://www.github.com/): Used as a version control system and a backend for comments.
 1. [Netlify](ext:https://www.netlify.com/): Used to serve the website, collect analytics*, and submit contact form.
 
-*The collected analytics don't include any kind of personal data. They are access logs that every server collects.
+*The collected analytics don't display any kind of personal data to me. They are access logs that every server collects.
 
 Please note: I'm not affiliated with any of these libraries or any of their creators. I'm neither linked in any way to any of the external links on this website. All the copyrights and trade marks belong to their respective owners.
 
