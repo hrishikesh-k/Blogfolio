@@ -14,19 +14,21 @@ menu:
 
 ### Introduction
 
-Hi, I'm Hrishikesh Kokate. I'm a currently a third-year graduation student from Thane, India. I've been fascinated by computers and a tech-enthusiast for a huge part of my life. From learning new applications to developing one myself, exploring graphics creation, fiddling with the deep ends of an operating system, I have always tried to keep myself updated, theoretically and practically on my knowledge about computers and phones.
+Hi, I'm Hrishikesh Kokate. I'm working at Netlify. I'm from Thane, India. I've been fascinated by computers and been a tech-enthusiast for a huge part of my life. From learning new applications to developing one myself, exploring graphics creation, fiddling with the deep ends of an operating system, I have always tried to keep myself updated, theoretically and practically on my knowledge about computers and phones.
 
 I believe in constantly learning new concepts, applications, etc. and revising the old ones. Change is inevitable and you need to move along with the trend to keep yourself in the competition. Thus, I always keep experimenting and researching on new possibilities to learn and improve. Apart from computers, I'm also interested in physics and astronomy. I keep reading articles about new concepts and reports about the two. However, when I tried to learn these subjects formally, that didn't end well.
 
 ### Current status
 
-Currently, I'm a third-year Mass Media graduation student. I'm learning the basic concepts of how to build and maintain brands, advertise them, the psychology of consumers and so on.
+Currently, I'm working as a Senior Support Engineer at Netlify.
 
 Along with that, I'm also developing my application skillset. I believe, just knowing how to use more number of applications isn't a good thing, but, one should be able to use the correct one for a particular task. Just changing applications doesn't help unless one's not familiar with the concepts of the application or the task in general. Thus, I always give equal importance to theory or knowing why something behaves the way it does.
 
 #### Education
 
-**2018-2021**: Expected to graduate as a Bachelor of Mass Media from Satish Pradhan Dnyansadhna College, Thane (affiliated with University of Mumbai). Studied a total of 37 subjects + expected to complete Internal Programme in Visual Arts and Design course from MAAC, Thane. There, I learnt various concepts and applications related to 2D/3D animation, graphics designing, video editing, VFx, etc.
+**2021-2023**: Expected to graduate as a Master of Business Administration from Indian Institute of Aviation and Hospitality Management, Kalyan (affiliated with Singhania University, Jhunjhunu).
+
+**2018-2021**: Graduated as a Bachelor of Mass Media from Satish Pradhan Dnyansadhna College, Thane (affiliated with University of Mumbai). Studied a total of 37 subjects + completed Internal Programme in Visual Arts and Design course from MAAC, Thane. There, I learnt various concepts and applications related to 2D/3D animation, graphics designing, video editing, VFx, etc.
 
 **2016-2018**: Passed ISC Science Grade 12 from St. Gregorios High School, Chembur. Studied subjects like Physics, Chemistry, Mathematics, Economics, and English.
 
@@ -34,9 +36,9 @@ Along with that, I'm also developing my application skillset. I believe, just kn
 
 #### Work
 
-**2020+**: Worked as a 'Community Pilot' on Netlify. It included representing the company semi-officially on its forum and troubleshooting various problems of their customers regarding the usage of the platform.
+**2021+**: Worked as a Senior Suppor Engineer at Netlify. 
 
-**2016+**: Worked on various freelance video editing and graphic designing projects for various people and organizations.
+**2016-21**: Worked on various freelance video editing and graphic designing projects for various people and organizations.
 
 **2016-17**: Worked at Hind Pictures as a video creator and made various music videos for their songs.
 
@@ -63,6 +65,10 @@ I used Adobe Audition, Premiere Pro, After Effects, InDesign, Muse, etc. I didn'
 
 But, this skillset got a further boost when I decided to formally learn some of these applications from MAAC in 2018. Well, the course just gave me insights and introduction to some of the applications, but, it definitely gave me insights on how stuff works. Now, I manage it myself. I have gained enough confidence to navigate my way through various applications.
 
+### Switch to Senior Support Engineer
+
+I've explained a big chunk of this in [one of my blog posts](rel:/blog/netlify-community-pilot/). But yeah, there was still a good switch from Pilot to Support Engineer. I was already a fan of the company and once I got to know there's an opening, I just could not miss the oppurtunity. I knew I had to take it. Long story short, after a series of interviews and tests I finally made it! This was still a sweet unexpected turn of events and thus, you may notice that a lot of my website talks about animation graphics, etc. and very little about programming and JAMStack.
+
 ### My favourite applications
 
 I have tried quite a few applications in various fields and developed my favourites and preferences over time:
@@ -85,7 +91,7 @@ I have tried quite a few applications in various fields and developed my favouri
 >
 >Compositing: Blackmagic Design Fusion Studio
 >
->Web development: Hugo
+>Web development: Hugo, NuxtJS
 >
 >HTML5 animations: Saola Animate
 >
@@ -97,7 +103,7 @@ These ones are the ones that I prefer over their competitors. But, that doesn't 
 
 ### Future plans
 
-In the near future, I plan to do my masters along with further developing my skills and focussing more on my areas of interests. Along with that, I also plan to gain some work experience and increase the number of good quality projects in my portfolio.
+I aim to continue working on various more projects while continuing an excelling at my work. Every day is a learning day so, I plan on re-visiting a new me with improved knowledge and experience year by year.
 
 ## About the website
 
@@ -137,14 +143,14 @@ I have tried to think about the website from a user's perspective. How can I mak
 
 Though I created the website from scratch, it could not have been possible without some great open source libraries that I've used throughout the website. I can't thank them enough for making this website possible. I've used the following libraries to put this website together:
 
-1. [UIkit](ext:https://github.com/uikit/uikit): Used as a styling solution.
-1. [Gitalk](ext:https://github.com/gitalk/gitalk): Used as a comments engine.
-1. [Turbo](ext:https://github.com/hotwired/turbo): Used as a SPA-style emulator.
-1. [Glide.js](ext:https://github.com/glidejs/glide): Used as a gallery for images.
-1. [DPlayer](ext:https://github.com/DIYgod/DPlayer): Used as a video player + next.
-1. [hls.js](ext:https://github.com/video-dev/hls.js): Used as a M3U8 parser for videos.
-1. [FlexSearch.js](ext:https://github.com/nextapps-de/flexsearch): Used as a search engine.
-1. [wavesurfer.js](ext:https://github.com/katspaugh/wavesurfer.js): Used as an audio player.
+1. [UIkit](ext:https://github.com/uikit/uikit/): Used as a styling solution.
+1. [Turbo](ext:https://github.com/hotwired/turbo/): Used as a SPA-style emulator.
+1. [Glide.js](ext:https://github.com/glidejs/glide/): Used as a gallery for images.
+1. [DPlayer](ext:https://github.com/DIYgod/DPlayer/): Used as a video player + next.
+1. [hls.js](ext:https://github.com/video-dev/hls.js/): Used as a M3U8 parser for videos.
+1. [FlexSearch.js](ext:https://github.com/nextapps-de/flexsearch/): Used as a search engine.
+1. [wavesurfer.js](ext:https://github.com/katspaugh/wavesurfer.js/): Used as an audio player.
+1. [ThreadTalk.JS](ext:https://github.com/Hrishikesh-K/threadtalk.js/): Used as a comments engine.
 
 Other than these libraries, I have used some services without which this website wouldn't have been possible:
 

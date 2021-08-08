@@ -126,7 +126,6 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── home.js
 │   │   └── offline.js
 │   ├── css/
-│   │   ├── gitalk-v1.7.0.css
 │   │   ├── glide-v3.4.1.css
 │   │   └── uikit-v3.7.2.css
 │   ├── images/
@@ -143,7 +142,6 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   ├── js/
 │   │   ├── dplayer-v1.26.0.js
 │   │   ├── flexsearch-v0.7.2-light.js
-│   │   ├── gitalk-v1.7.0.js
 │   │   ├── glide-v3.4.1.js
 │   │   ├── hls-v1.0.7-light.js
 │   │   ├── saola-animate-v3.0.0.js
@@ -222,7 +220,7 @@ With my limited skill set, I have tried to add the most essential features for t
 
 ### UIkit-based
 
-I have chosen UIkit as a front-end library for this website. It gives a clean, minimalistic and responsive layout almost out of the box. It also has a wide range of components to use. [Check it out here](https://github.com/uikit/uikit).
+I have chosen UIkit as a front-end library for this website. It gives a clean, minimalistic and responsive layout almost out of the box. It also has a wide range of components to use. [Check it out here](https://github.com/uikit/uikit/).
 
 [Back to TOC](#TOC)
 
@@ -342,7 +340,7 @@ Alongside the standard images of Markdown, you can also create image galleries/s
 {{< gallery "assets/img1.png:Alt text 1" "assets/img2.png:Alt text 2" >}}
 ```
 
-The gallery is made possible using [Glide.js](https://github.com/glidejs/glide).
+The gallery is made possible using [Glide.js](https://github.com/glidejs/glide/).
 
 [Back to TOC](#TOC)
 
@@ -354,9 +352,9 @@ Audio files can be added to Markdown files using the `{{< audio >}}` shortcode. 
 {{< audio src = "assets/audio.mp3" >}}
 ```
 
-The audio player is generated using [wavesurfer.js](https://github.com/katspaugh/wavesurfer.js). For this to fully work, you'd also need to generate a JSON file and save it along with the audio file with the same name. For example, if the audio file exists at `./content/<section>/<slug>/assets/audio.mp3`, the JSON file must exist at `./content/<section>/<slug>/assets/audio.json`. This JSON needs to be generated manually. To do this, you'd need Python installed and configured on your system.
+The audio player is generated using [wavesurfer.js](https://github.com/katspaugh/wavesurfer.js/). For this to fully work, you'd also need to generate a JSON file and save it along with the audio file with the same name. For example, if the audio file exists at `./content/<section>/<slug>/assets/audio.mp3`, the JSON file must exist at `./content/<section>/<slug>/assets/audio.json`. This JSON needs to be generated manually. To do this, you'd need Python installed and configured on your system.
 
-To generate the JSON, use [audiowaveform](https://github.com/bbc/audiowaveform). Once you have it installed and configured on your system, use the following command in your shell:
+To generate the JSON, use [audiowaveform](https://github.com/bbc/audiowaveform/). Once you have it installed and configured on your system, use the following command in your shell:
 
 ```sh
 audiowaveform -i audio.mp3 -o audio.json --pixels-per-second 20 --bits 8
@@ -411,7 +409,7 @@ Videos can be inserted in Markdown using `{{< video >}}` shortcode. It accepts 4
 {{< video src = "assets/video.m3u8" poster = "assets/poster.png" thumbnails = "assets/thumbnails.jpg" subtitles = "assets/subtitles.vtt" >}}
 ```
 
-The video player is made possible using [DPlayer](https://github.com/DIYgod/DPlayer) and [hls.js](https://github.com/video-dev/hls.js).
+The video player is made possible using [DPlayer](https://github.com/DIYgod/DPlayer/) and [hls.js](https://github.com/video-dev/hls.js/).
 
 The required `.m3u8` file can be generated with the following command (needs ffmpeg installed and configured):
 
@@ -469,7 +467,7 @@ Since audio and video files are known to be heavy on bandwidth, there are some s
 
 ### Single Page Application (SPA)
 
-The internal navigation of the website is managed using [Turbo](https://github.com/hotwired/turbo). It gives the feel of a SPA by not reloading the entire page to navigate. The body content is replaced with the new body requested using AJAX.
+The internal navigation of the website is managed using [Turbo](https://github.com/hotwired/turbo/). It gives the feel of a SPA by not reloading the entire page to navigate. The body content is replaced with the new body requested using AJAX.
 
 [Back to TOC](#TOC)
 
@@ -481,23 +479,19 @@ There's a contact form set up to work with Netlify forms + AJAX submission. It s
 
 ### Comments
 
-A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [Gitalk](https://github.com/gitalk/gitalk). You'd have to change it with your values in `./layouts/index.logic.js`. You'd have to update the following:
+A comment system has been setup to show comments on all content pages not marked as `static` in the frontmatter. This is made possible using [ThreadTalk.JS](https://github.com/Hrishikesh-K/threadtalk.js/). You'd have to change it with your config in `./assets/threadtalk.js`. You'd have to update the following:
 
 ```js
-new Gitalk({
-  repo: 'string',
-  owner: 'string',
-  admin: 'string',
-  clientID: 'string',
-  clientSecret: 'string',
-}).render(comments)
+new ThreadTalkJS({
+  // config
+})
 ```
 
 [Back to TOC](#TOC)
 
 ### Search
 
-A client-side search has been implemented which should work out of the box without any changes. It is made possible by [FlexSearch.js](https://github.com/nextapps-de/flexsearch). The search features 'search-as-you-type' and query parameter support. While 'search-as-you-type' is self-explanatory, by query parameter support, I mean, it responds to search queries directly from URL, for example: `https://www.domain.tld/search/?q=hello` would search the website for `hello`. This helps to also enable the Potential Action in Structured Data.
+A client-side search has been implemented which should work out of the box without any changes. It is made possible by [FlexSearch.js](https://github.com/nextapps-de/flexsearch/). The search features 'search-as-you-type' and query parameter support. While 'search-as-you-type' is self-explanatory, by query parameter support, I mean, it responds to search queries directly from URL, for example: `https://www.domain.tld/search/?q=hello` would search the website for `hello`. This helps to also enable the Potential Action in Structured Data.
 
 [Back to TOC](#TOC)
 
