@@ -146,11 +146,11 @@ Here's a vital file structure to help you understand it better. Only the vital f
 │   │   ├── dplayer-v1.26.0.js
 │   │   ├── flexsearch-v0.7.2-light.js
 │   │   ├── glide-v3.4.1.js
-│   │   ├── hls-v1.0.7-light.js
+│   │   ├── hls-v1.0.10-light.js
 │   │   ├── saola-animate-v3.0.0.js
-│   │   ├── turbo-v7.0.0-beta.8.js
+│   │   ├── turbo-v7.0.0-rc.3.js
 │   │   ├── uikit-v3.7.2.js
-│   │   └── wavesurfer-v5.1.0.js
+│   │   └── wavesurfer-v5.2.0.js
 │   ├── browserconfig.xml
 │   └── favicon.ico
 ├── config.toml
