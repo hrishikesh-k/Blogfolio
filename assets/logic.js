@@ -410,7 +410,9 @@ window.addEventListener('load', () => {
       searchInput.value = '';
       resultsContainer.innerHTML = '';
       resultsContainer.style.marginTop = 0;
-      history.replaceState('', '', './');
+      history.replaceState({
+        turbo: {}
+      }, null, './');
       return clickHandler;
     });
     switch (document.querySelector('.search-form')) {
