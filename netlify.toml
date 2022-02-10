@@ -13,3 +13,8 @@
 
 [[plugins]]
   package = "netlify-plugin-threadtalkjs"
+  
+[[headers]]
+  for = "/404/*"
+  [headers.values]
+    custom = "foo"
